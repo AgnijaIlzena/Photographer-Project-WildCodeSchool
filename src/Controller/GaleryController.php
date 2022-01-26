@@ -81,7 +81,7 @@ class GaleryController extends AbstractController
     /**
      * @Route("/{id}", name="galery_delete", methods={"POST"})
      */
-    public function delete(Request $request, Galery $galery, ?EntityManagerInterface $entityManager): Response
+    public function delete(Request $request, Galery $galery, EntityManagerInterface $entityManager): Response
     {
         if ($this->isCsrfTokenValid('delete'.$galery->getId(), $request->request->get('_token'))) {
             $entityManager->remove($galery);
