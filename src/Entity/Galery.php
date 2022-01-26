@@ -6,7 +6,6 @@ use App\Repository\GaleryRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use phpDocumentor\Reflection\Types\Integer;
 
 /**
  * @ORM\Entity(repositoryClass=GaleryRepository::class)
@@ -28,7 +27,7 @@ class Galery
     /**
      * @ORM\Column(type="text", nullable=true)
      */
-    private string $description;
+    private ?string $description;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -36,16 +35,24 @@ class Galery
     private string $password;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private int $year;
-
-
-    /**
      * @ORM\Column(type="boolean")
      */
     private bool $isAdmin;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private ?int $year;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Photo::class, mappedBy="galery", orphanRemoval=true)
+     */
+    private $photo;
+
+    public function __construct()
+    {
+        $this->photo = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -88,6 +95,18 @@ class Galery
         return $this;
     }
 
+    public function getIsAdmin(): ?bool
+    {
+        return $this->isAdmin;
+    }
+
+    public function setIsAdmin(bool $isAdmin): self
+    {
+        $this->isAdmin = $isAdmin;
+
+        return $this;
+    }
+
     public function getYear(): ?int
     {
         return $this->year;
@@ -100,15 +119,32 @@ class Galery
         return $this;
     }
 
-
-    public function getIsAdmin(): ?bool
+    /**
+     * @return Collection|Photo[]
+     */
+    public function getPhoto(): Collection
     {
-        return $this->isAdmin;
+        return $this->photo;
     }
 
-    public function setIsAdmin(bool $isAdmin): self
+    public function addPhoto(Photo $photo): self
     {
-        $this->isAdmin = $isAdmin;
+        if (!$this->photo->contains($photo)) {
+            $this->photo[] = $photo;
+            $photo->setGalery($this);
+        }
+
+        return $this;
+    }
+
+    public function removePhoto(Photo $photo): self
+    {
+        if ($this->photo->removeElement($photo)) {
+            // set the owning side to null (unless already changed)
+            if ($photo->getGalery() === $this) {
+                $photo->setGalery(null);
+            }
+        }
 
         return $this;
     }
