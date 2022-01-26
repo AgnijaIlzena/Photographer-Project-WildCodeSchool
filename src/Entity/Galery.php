@@ -30,9 +30,9 @@ class Galery
     private ?string $description;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private string $password;
+    private ?string $password;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
@@ -83,7 +83,7 @@ class Galery
         return $this->password;
     }
 
-    public function setPassword(string $password): self
+    public function setPassword(?string $password): self
     {
         $this->password = $password;
 
