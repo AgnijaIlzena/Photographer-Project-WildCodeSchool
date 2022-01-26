@@ -47,7 +47,7 @@ class Galery
     /**
      * @ORM\OneToMany(targetEntity=Photo::class, mappedBy="galery", orphanRemoval=true)
      */
-    private $photo;
+    private ArrayCollection $photo;
 
     public function __construct()
     {

@@ -15,7 +15,7 @@ class Photo
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private int $id;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -26,7 +26,7 @@ class Photo
      * @ORM\ManyToOne(targetEntity=Galery::class, inversedBy="photo")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $galery;
+    private ?Galery $galery;
 
     public function getId(): ?int
     {
