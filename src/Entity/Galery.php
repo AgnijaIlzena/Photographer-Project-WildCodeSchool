@@ -40,20 +40,12 @@ class Galery
      */
     private int $year;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Photo::class, mappedBy="galery", orphanRemoval=true)
-     */
-    private Photo $photos;
 
     /**
      * @ORM\Column(type="boolean")
      */
     private bool $isAdmin;
 
-    public function __construct()
-    {
-        $this->photos = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
@@ -108,35 +100,6 @@ class Galery
         return $this;
     }
 
-    /**
-     * @return Collection|Photo[]
-     */
-    public function getPhotos(): Collection
-    {
-        return $this->photos;
-    }
-
-    public function addPhoto(Photo $photo): self
-    {
-        if (!$this->photos->contains($photo)) {
-            $this->photos[] = $photo;
-            $photo->setGalery($this);
-        }
-
-        return $this;
-    }
-
-    public function removePhoto(Photo $photo): self
-    {
-        if ($this->photos->removeElement($photo)) {
-            // set the owning side to null (unless already changed)
-            if ($photo->getGalery() === $this) {
-                $photo->setGalery(null);
-            }
-        }
-
-        return $this;
-    }
 
     public function getIsAdmin(): ?bool
     {
