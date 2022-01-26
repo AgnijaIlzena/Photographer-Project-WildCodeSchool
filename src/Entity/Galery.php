@@ -89,8 +89,6 @@ class Galery
 
         return $this;
     }
-
-
     public function getYear(): ?int
     {
         return $this->year;
