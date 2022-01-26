@@ -42,11 +42,11 @@ class Galery
     /**
      * @ORM\OneToMany(targetEntity=Photo::class, mappedBy="galery", orphanRemoval=true)
      */
-    private ArrayCollection $photo;
+    private ArrayCollection $photos;
 
     public function __construct()
     {
-        $this->photo = new ArrayCollection();
+        $this->photos = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -106,15 +106,15 @@ class Galery
     /**
      * @return Collection|Photo[]
      */
-    public function getPhoto(): Collection
+    public function getPhotos(): Collection
     {
-        return $this->photo;
+        return $this->photos;
     }
 
     public function addPhoto(Photo $photo): self
     {
-        if (!$this->photo->contains($photo)) {
-            $this->photo[] = $photo;
+        if (!$this->photos->contains($photo)) {
+            $this->photos[] = $photo;
             $photo->setGalery($this);
         }
 
@@ -123,7 +123,7 @@ class Galery
 
     public function removePhoto(Photo $photo): self
     {
-        if ($this->photo->removeElement($photo)) {
+        if ($this->photos->removeElement($photo)) {
             // set the owning side to null (unless already changed)
             if ($photo->getGalery() === $this) {
                 $photo->setGalery(null);
