@@ -17,10 +17,7 @@ class Photo
      */
     private int $id;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private string $link;
+
 
     /**
      * @ORM\ManyToOne(targetEntity=Galery::class, inversedBy="photo")
@@ -28,21 +25,19 @@ class Photo
      */
     private ?Galery $galery;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private string $path;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private int $number;
+
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getLink(): ?string
-    {
-        return $this->link;
-    }
-
-    public function setLink(string $link): self
-    {
-        $this->link = $link;
-
-        return $this;
     }
 
     public function getGalery(): ?Galery
@@ -53,6 +48,30 @@ class Photo
     public function setGalery(?Galery $galery): self
     {
         $this->galery = $galery;
+
+        return $this;
+    }
+
+    public function getPath(): ?string
+    {
+        return $this->path;
+    }
+
+    public function setPath(string $path): self
+    {
+        $this->path = $path;
+
+        return $this;
+    }
+
+    public function getNumber(): ?int
+    {
+        return $this->number;
+    }
+
+    public function setNumber(int $number): self
+    {
+        $this->number = $number;
 
         return $this;
     }

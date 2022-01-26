@@ -35,11 +35,6 @@ class Galery
     private string $password;
 
     /**
-     * @ORM\Column(type="boolean")
-     */
-    private bool $isAdmin;
-
-    /**
      * @ORM\Column(type="integer", nullable=true)
      */
     private ?int $year;
@@ -95,17 +90,6 @@ class Galery
         return $this;
     }
 
-    public function getIsAdmin(): ?bool
-    {
-        return $this->isAdmin;
-    }
-
-    public function setIsAdmin(bool $isAdmin): self
-    {
-        $this->isAdmin = $isAdmin;
-
-        return $this;
-    }
 
     public function getYear(): ?int
     {
