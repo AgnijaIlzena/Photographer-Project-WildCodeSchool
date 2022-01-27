@@ -32,7 +32,7 @@ class GaleryController extends AbstractController
 
         if (!$galery) {
             throw $this->createNotFoundException(
-                'No galery with id : '.$id.' found in galeries table.'
+                'No galery with id : ' . $id . ' found in galeries table.'
             );
         }
 
