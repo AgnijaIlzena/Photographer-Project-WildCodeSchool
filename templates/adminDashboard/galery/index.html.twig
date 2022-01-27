@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Galery index{% endblock %}
+
+{% block body %}
+{{ include('adminDashboard/admin/_adminNavBar.html.twig') }}
+    <h4>All Galeries</h4>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Password</th>
+                <th>Year</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for galery in galeries %}
+            <tr>
+                <td>{{ galery.id }}</td>
+                <td>{{ galery.title }}</td>
+                <td>{{ galery.description }}</td>
+                <td>{{ galery.password }}</td>
+                <td>{{ galery.year }}</td>
+                <td>
+                    <a href="{{ path('galery_show', {'id': galery.id}) }}">show</a>
+                    <a href="{{ path('galery_edit', {'id': galery.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('galery_new') }}">Create new</a>
+{% endblock %}

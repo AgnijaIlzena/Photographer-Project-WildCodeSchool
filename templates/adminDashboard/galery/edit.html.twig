@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Galery{% endblock %}
+
+{% block body %}
+{{ include('adminDashboard/admin/_adminNavBar.html.twig') }}
+    <h1>Edit Galery</h1>
+
+    {{ include('galery/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('galery_index') }}">back to list</a>
+
+    {{ include('adminDashboard/galery/_delete_form.html.twig') }}
+{% endblock %}
