@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Admin;
 
 use App\Entity\Photo;
 use App\Form\PhotoType;
@@ -21,7 +21,7 @@ class PhotoController extends AbstractController
      */
     public function index(PhotoRepository $photoRepository): Response
     {
-        return $this->render('photo/index.html.twig', [
+        return $this->render('adminDashboard/photo/index.html.twig', [
             'photos' => $photoRepository->findAll(),
         ]);
     }
@@ -42,7 +42,7 @@ class PhotoController extends AbstractController
             return $this->redirectToRoute('photo_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('photo/new.html.twig', [
+        return $this->renderForm('adminDashboard/photo/new.html.twig', [
             'photo' => $photo,
             'form' => $form,
         ]);
@@ -53,7 +53,7 @@ class PhotoController extends AbstractController
      */
     public function show(Photo $photo): Response
     {
-        return $this->render('photo/show.html.twig', [
+        return $this->render('adminDashboard/photo/show.html.twig', [
             'photo' => $photo,
         ]);
     }
@@ -72,7 +72,7 @@ class PhotoController extends AbstractController
             return $this->redirectToRoute('photo_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('photo/edit.html.twig', [
+        return $this->renderForm('adminDashboard/photo/edit.html.twig', [
             'photo' => $photo,
             'form' => $form,
         ]);

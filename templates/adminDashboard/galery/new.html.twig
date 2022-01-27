@@ -3,9 +3,9 @@
 {% block title %}New Galery{% endblock %}
 
 {% block body %}
-{{ include('admin/_adminNavBar.html.twig') }}
+{{ include('adminDashboard/admin/_adminNavBar.html.twig') }}
     <h4>Create new Galery</h4>
-    {{ include('galery/_form.html.twig') }}
+    {{ include('adminDashboard/galery/_form.html.twig') }}
     <a href="{{ path('galery_index') }}">back to list</a>
 {% endblock %}
 

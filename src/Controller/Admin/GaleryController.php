@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Admin;
 
 use App\Entity\Galery;
 use App\Form\GaleryType;
@@ -21,7 +21,7 @@ class GaleryController extends AbstractController
      */
     public function index(GaleryRepository $galeryRepository): Response
     {
-        return $this->render('galery/index.html.twig', [
+        return $this->render('/adminDashboard/galery/index.html.twig', [
             'galeries' => $galeryRepository->findAll(),
         ]);
     }
@@ -42,7 +42,7 @@ class GaleryController extends AbstractController
             return $this->redirectToRoute('galery_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('galery/new.html.twig', [
+        return $this->renderForm('adminDashboard/galery/new.html.twig', [
             'galery' => $galery,
             'form' => $form,
         ]);
@@ -53,7 +53,7 @@ class GaleryController extends AbstractController
      */
     public function show(Galery $galery): Response
     {
-        return $this->render('galery/show.html.twig', [
+        return $this->render('adminDashboard/galery/show.html.twig', [
             'galery' => $galery,
         ]);
     }
@@ -72,7 +72,7 @@ class GaleryController extends AbstractController
             return $this->redirectToRoute('galery_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('galery/edit.html.twig', [
+        return $this->renderForm('adminDashboard/galery/edit.html.twig', [
             'galery' => $galery,
             'form' => $form,
         ]);
