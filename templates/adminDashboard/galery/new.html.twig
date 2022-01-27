@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Galery{% endblock %}
+
+{% block body %}
+{{ include('adminDashboard/admin/_adminNavBar.html.twig') }}
+    <h4>Create new Galery</h4>
+    {{ include('adminDashboard/galery/_form.html.twig') }}
+    <a href="{{ path('galery_index') }}">back to list</a>
+{% endblock %}
+
