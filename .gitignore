@@ -8,7 +8,7 @@
 /var/
 /vendor/
 .idea/
-/public/images/
+
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###
@@ -28,3 +28,9 @@ yarn-error.log
 /.phpcs-cache
 /phpcs.xml
 ###< squizlabs/php_codesniffer ###
+images/
+env.local
+
+###> liip/imagine-bundle ###
+/public/media/cache/
+###< liip/imagine-bundle ###

@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Galerie #{{ galery.title }}{% endblock %}
+
+
+{% block body %}
+    <div class="media">
+        <div class="media-body">
+            <h1 class="mt-0">{{ galery.title }}</h1>
+            <p>Description{{ galery.description }}</p>
+            <p>Année : {{ galery.year }}</p>
+
+            {% for photo in photos %}
+                        <a href="#" class="btn">Agrandir</a>
+
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+                <div class="col">
+                    <div class="card">
+                        <link rel="icon" type="image/png" href="{{ asset('/public/images/' ~ photo.path) }}">
+                        <div class="card-body">
+                            <h5 class="card-title">Numéro :{{ photo.number }}</h5>
+                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <a href="{{ path('galery_index') }}">
+        Retour à la liste des galeries
+    </a>
+{% endblock %}
+
