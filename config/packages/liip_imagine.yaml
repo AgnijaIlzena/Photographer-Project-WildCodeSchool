@@ -3,10 +3,18 @@ liip_imagine:
     # valid drivers options include "gd" or "gmagick" or "imagick"
     driver: "gd"
     filter_sets:
+        banner:
+            quality: 80
+            filters:
+                upscale:
+                    min: [1000, 600]
+                trumbnail:
+                    size: [1000, 600]
+                    mode: outbound
         square:
-            quality: 75
+            quality: 70
             filters:
                 trumbnail:
-                    size: [2000-1865]
-                    mode: lazy
+                    size: [400, 400]
+                    mode: outbound
 
