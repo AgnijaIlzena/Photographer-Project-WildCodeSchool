@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Photos index. {% endblock %}
+
+{% block body %}
+{{ include('adminDashboard/admin/_adminNavBar.html.twig') }}
+    <h4>(Photo index) Photos By Galeries: </h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Path</th>
+                <th>Number</th>
+                <th>Icon</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for photo in photos %}
+            <tr>
+                <td>{{ photo.id }}</td>
+                <td>{{ photo.path }}</td>
+                <td>{{ photo.number }}</td>
+                <td><img  style="width: 40px; height: 40px" src="{{ asset(photo.path) }}"></td>
+                <td>
+                    <a href="{{ path('photo_show', {'id': photo.id}) }}">show</a>
+                    <a href="{{ path('photo_edit', {'id': photo.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ path('photo_new') }}">Create new</a>
+{% endblock %}

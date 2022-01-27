@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Photo{% endblock %}
+
+{% block body %}
+{{ include('adminDashboard/admin/_adminNavBar.html.twig') }}
+    <h1>Edit Photo</h1>
+{{ include('adminDashboard/photo/_form.html.twig', {'button_label': 'Update'}) }}
+    <a href="{{ path('photo_index') }}">back to list</a>
+{{ include('adminDashboard/photo/_delete_form.html.twig') }}
+{% endblock %}
