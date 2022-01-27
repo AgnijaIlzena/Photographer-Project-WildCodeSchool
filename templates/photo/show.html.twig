@@ -3,8 +3,8 @@
 {% block title %}Photo{% endblock %}
 
 {% block body %}
+{{ include('admin/_adminNavBar.html.twig') }}
     <h1>Photo</h1>
-
     <table class="table">
         <tbody>
             <tr>
@@ -12,8 +12,8 @@
                 <td>{{ photo.id }}</td>
             </tr>
             <tr>
-                <th>Path</th>
-                <td>{{ photo.path }}</td>
+                <th>Img</th>
+                <td><img  style="width: 100px; height: 100px" src="{{ asset(photo.path) }}"></td>
             </tr>
             <tr>
                 <th>Number</th>
@@ -21,13 +21,7 @@
             </tr>
         </tbody>
     </table>
-    <div >
-        <img  style="width: 100px; height: 100px" src="{{ asset( photo.path )}}">
-    </div>
-
     <a href="{{ path('photo_index') }}">back to list</a>
-
     <a href="{{ path('photo_edit', {'id': photo.id}) }}">edit</a>
-
-    {{ include('photo/_delete_form.html.twig') }}
+{{ include('photo/_delete_form.html.twig') }}
 {% endblock %}

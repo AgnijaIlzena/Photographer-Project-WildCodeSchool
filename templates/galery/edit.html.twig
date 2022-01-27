@@ -3,6 +3,7 @@
 {% block title %}Edit Galery{% endblock %}
 
 {% block body %}
+{{ include('admin/_adminNavBar.html.twig') }}
     <h1>Edit Galery</h1>
 
     {{ include('galery/_form.html.twig', {'button_label': 'Update'}) }}

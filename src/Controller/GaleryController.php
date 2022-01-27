@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/galery")
+ * @Route("/admin/galery")
  */
 class GaleryController extends AbstractController
 {
@@ -83,7 +83,7 @@ class GaleryController extends AbstractController
      */
     public function delete(Request $request, Galery $galery, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$galery->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $galery->getId(), (string) $request->request->get('_token'))) {
             $entityManager->remove($galery);
             $entityManager->flush();
         }
