@@ -45,7 +45,8 @@ class GaleryController extends AbstractController
     }
 
     /**
-     * @Route("/galery/{galeryId}/photo/{photoId}", requirements={"id"="\d+"}, methods={"GET"}, name="galery_photo_show")
+     * @Route("/galery/{galeryId}/photo/{photoId}", requirements={"id"="\d+"},
+     *     methods={"GET"}, name="galery_photo_show")
      */
     public function showOne(int $galeryId, int $photoId): Response
     {
