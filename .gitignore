@@ -9,6 +9,7 @@
 /vendor/
 .idea/
 /public/images/
+/public/uploads/
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###

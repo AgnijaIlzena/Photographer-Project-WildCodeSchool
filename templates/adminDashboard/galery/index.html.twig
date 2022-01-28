@@ -4,8 +4,7 @@
 
 {% block body %}
 {{ include('adminDashboard/admin/_adminNavBar.html.twig') }}
-    <h4>All Galeries</h4>
-
+  <h4>All Galeries</h4>
     <table class="table">
         <thead>
             <tr>
@@ -37,6 +36,6 @@
         {% endfor %}
         </tbody>
     </table>
+    <a href="{{ path('galery_new') }}">Create new Galery</a>
 
-    <a href="{{ path('galery_new') }}">Create new</a>
 {% endblock %}
