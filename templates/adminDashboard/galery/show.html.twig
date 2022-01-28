@@ -29,8 +29,8 @@
             </tr>
          </tbody>
     </table>
-    <a href="{{ path('galery_index') }}">back to list</a>
-    <a href="{{ path('galery_edit', {'id': galery.id}) }}">edit</a>
+    <a href="{{ path('admin_galery_index') }}">back to list</a>
+    <a href="{{ path('admin_galery_edit', {'id': galery.id}) }}">edit</a>
 {{ include('adminDashboard/galery/_delete_form.html.twig') }}
     {% for photo in galery.photos %}
         <td>
