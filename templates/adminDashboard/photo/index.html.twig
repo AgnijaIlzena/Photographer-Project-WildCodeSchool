@@ -20,7 +20,7 @@
                 <td>{{ photo.id }}</td>
                 <td>{{ photo.path }}</td>
                 <td>{{ photo.number }}</td>
-                <td><img  style="width: 40px; height: 40px" src="{{ asset(photo.path) }}"></td>
+                <td><img  style="width: 40px; height: 40px" src="/uploads/{{ photo.path }}"></td>
                 <td>
                     <a href="{{ path('photo_show', {'id': photo.id}) }}">show</a>
                     <a href="{{ path('photo_edit', {'id': photo.id}) }}">edit</a>

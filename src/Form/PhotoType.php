@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Photo;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -16,7 +17,12 @@ class PhotoType extends AbstractType
             ->add('number')
             //->add('galery')
             ->add('galery', null, ['choice_label' => 'title'])
-        ;
+            ->add('photo', FileType::class, [
+                'label' => false,
+                'multiple' => true,
+                'mapped' => false,
+                'required' => false,
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
