@@ -16,14 +16,14 @@ class GaleryType extends AbstractType
             ->add('title')
             ->add('description')
            // ->add('password')
-            ->add('year')
+            ->add('year');
             // add photos, not linked with data base => mapped (false)
-            ->add('photo', FileType::class, [
+           /* ->add('photo', FileType::class, [
                 'label' => false,
                 'multiple' => true,
                 'mapped' => false,
                 'required' => false,
-            ]);
+            ]);*/
     }
 
     public function configureOptions(OptionsResolver $resolver): void

@@ -38,9 +38,9 @@ class GaleryController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            //treatement of photos
+           /*//treatement of photos
             /** @var array $photos */
-            $photos = $form->get('photo')->getData();
+          /*  $photos = $form->get('photo')->getData();
 
             //loop through photos
             foreach ($photos as $photo) {
@@ -53,16 +53,16 @@ class GaleryController extends AbstractController
                     $file
                 );
 
-                //stock image in data base (stock the name)
+                //stock image in data base (stock the name!!! not path)
                 $img = new Photo();
                 $img->setPath($file);
                 $galery->addPhoto($img);
-            }
+            } */
 
             $entityManager->persist($galery);
             $entityManager->flush();
 
-            return $this->redirectToRoute('galery_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('admin_galery_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('adminDashboard/galery/new.html.twig', [
