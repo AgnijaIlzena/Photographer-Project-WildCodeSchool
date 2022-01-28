@@ -17,7 +17,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class GaleryController extends AbstractController
 {
     /**
-     * @Route("/", name="galery_index", methods={"GET"})
+     * @Route("/", name="admin_galery_index", methods={"GET"})
      */
     public function index(GaleryRepository $galeryRepository): Response
     {
@@ -27,7 +27,7 @@ class GaleryController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="galery_new", methods={"GET", "POST"})
+     * @Route("/new", name="admin_galery_new", methods={"GET", "POST"})
      */
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
@@ -49,7 +49,7 @@ class GaleryController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="galery_show", methods={"GET"})
+     * @Route("/{id}", name="admin_galery_show", methods={"GET"})
      */
     public function show(Galery $galery): Response
     {
@@ -59,7 +59,7 @@ class GaleryController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="galery_edit", methods={"GET", "POST"})
+     * @Route("/{id}/edit", name="admin_galery_edit", methods={"GET", "POST"})
      */
     public function edit(Request $request, Galery $galery, EntityManagerInterface $entityManager): Response
     {
@@ -79,7 +79,7 @@ class GaleryController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="galery_delete", methods={"POST"})
+     * @Route("/{id}", name="admin_galery_delete", methods={"POST"})
      */
     public function delete(Request $request, Galery $galery, EntityManagerInterface $entityManager): Response
     {

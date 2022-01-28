@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\GaleryRepository;
+use App\Service\Slugify;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -43,6 +44,11 @@ class Galery
      * @ORM\OneToMany(targetEntity=Photo::class, mappedBy="galery", orphanRemoval=true)
      */
     private Collection $photos;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private ?string $slug;
 
     public function __construct()
     {
@@ -127,6 +133,18 @@ class Galery
                 $photo->setGalery(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
 
         return $this;
     }

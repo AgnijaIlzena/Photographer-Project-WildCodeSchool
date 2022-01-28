@@ -6,7 +6,7 @@
 {% block body %}
 <div class="grid xs2 sm3 gutter-0 card">
     <div class="primary flex vcenter fx_center">
-        <img src="{{ asset('/public/images/' ~ photo.path)|imagine_filter('banner') }}"  alt="{{ photo.number }}">
+        <img src="/images/{{ photo.path|imagine_filter('banner') }}"  alt="{{ photo.number }}">
     </div>
 </div>
 <a href="{{ path("galery_show", {id: galery.id}) }}">
