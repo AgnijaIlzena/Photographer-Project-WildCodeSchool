@@ -28,9 +28,9 @@ class Photo
     private string $path;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      */
-    private int $number;
+    private ?int $number;
 
     public function getId(): ?int
     {
@@ -66,7 +66,7 @@ class Photo
         return $this->number;
     }
 
-    public function setNumber(int $number): self
+    public function setNumber(?int $number): self
     {
         $this->number = $number;
 

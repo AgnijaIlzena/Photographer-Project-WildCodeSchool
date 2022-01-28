@@ -40,7 +40,7 @@ class Galery
     private ?int $year;
 
     /**
-     * @ORM\OneToMany(targetEntity=Photo::class, mappedBy="galery", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=Photo::class, mappedBy="galery", orphanRemoval=true, cascade={"persist"})
      */
     private Collection $photos;
 
