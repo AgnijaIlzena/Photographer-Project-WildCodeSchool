@@ -6,12 +6,12 @@
     {#  {{ form_row(form._token) }}#}
     {#   chek if this is edit route form to show images #}
 {#  {% if app.request.attributes.get('_route') == 'galery_edit' %}#}
-    <h2>Images</h2>
+   {#  <h2>Images</h2>
         {% for photo in galery.photos %}
             <td>
                 <img style="height: 100px;" src="{{ asset('/uploads/' ~ photo.path) }}" alt="Image" >
             </td>
-    {% endfor %}
+    {% endfor %} #}
 {#   {% endif %} #}
     <button class="btn">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}

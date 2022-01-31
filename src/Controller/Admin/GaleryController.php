@@ -38,30 +38,8 @@ class GaleryController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-           /*//treatement of photos
-            /** @var array $photos */
-          /*  $photos = $form->get('photo')->getData();
-
-            //loop through photos
-            foreach ($photos as $photo) {
-                //generate new name of file
-                $file = md5(uniqid()) . '.' . $photo->guessExtension();
-
-                //copy the file in upload folder
-                $photo->move(
-                    $this->getParameter('images_directory'),
-                    $file
-                );
-
-                //stock image in data base (stock the name!!! not path)
-                $img = new Photo();
-                $img->setPath($file);
-                $galery->addPhoto($img);
-            } */
-
             $entityManager->persist($galery);
             $entityManager->flush();
-
             return $this->redirectToRoute('admin_galery_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -89,23 +67,6 @@ class GaleryController extends AbstractController
         $form = $this->createForm(GaleryType::class, $galery);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            //treatment of photos
-            /** @var array $photos */
-            $photos = $form->get('photo')->getData();
-            //loop through photos
-            foreach ($photos as $photo) {
-                //generate new name of folder
-                $file = md5(uniqid()) . '.' . $photo -> guessExtension();
-                //copy the file in upload folder
-                $photo->move(
-                    $this->getParameter('images_directory'),
-                    $file
-                );
-                //stock image in data base (stock the name)
-                $img = new Photo();
-                $img->setPath($file);
-                $galery->addPhoto($img);
-            }
             $entityManager->flush();
             return $this->redirectToRoute('galery_index', [], Response::HTTP_SEE_OTHER);
         }
@@ -125,7 +86,7 @@ class GaleryController extends AbstractController
             $entityManager->remove($galery);
             $entityManager->flush();
         }
-        return $this->redirectToRoute('galery_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('admin_galery_index', [], Response::HTTP_SEE_OTHER);
     }
 
     /**
@@ -138,6 +99,6 @@ class GaleryController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('galery_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('admin_galery_index', [], Response::HTTP_SEE_OTHER);
     }
 }
