@@ -7,7 +7,7 @@ use App\Form\PhotosType;
 use App\Form\PhotoType;
 use App\Repository\PhotoRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use phpDocumentor\Reflection\Types\String_;
+//use phpDocumentor\Reflection\Types\String_;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
