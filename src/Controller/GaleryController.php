@@ -37,10 +37,8 @@ class GaleryController extends AbstractController
             );
         }
 
-        $photos = $galery->getPhotos();
-
         return $this->render('galery/show.html.twig', [
-            'galery' => $galery, 'photos' => $photos
+            'galery' => $galery,
         ]);
     }
 
