@@ -10,9 +10,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <img src="/images/photographer.jpg" alt="photographer" />
+                <img src="/images/photographer.jpg" height="90%" width="95%" alt="photographer" />
             </div>
-            <div class="col-md-8"></div>
+            <div class="col-md-8">
             <h1> A propos de moi</h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquam ea eos optio perspiciatis
                 praesentium, similique soluta veritatis. Adipisci aliquid animi debitis, dolorum eaque enim labore
@@ -29,16 +29,20 @@
                 veniam voluptate. Consequuntur ipsam iusto nostrum pariatur quibusdam. Ad aspernatur eius harum id nihil
                 quam quas ut vel? Accusamus amet dolorem ex exercitationem molestiae omnis quas quod repellat rerum
                 veritatis. Ad atque ea facere id in, iste mollitia officiis placeat quisquam sapiente suscipit ut.</p>
+            </div>
+            <h1>Toutes les photos : </h1>
             <div class="col-xs-12">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab amet, blanditiis commodi cumque
-                    doloribus ea eligendi ex expedita fuga harum incidunt iste maxime modi mollitia numquam perspiciatis
-                    quam, quia quos repellendus, rerum sunt tenetur vero voluptates. Accusamus, aliquid dicta, dolores
-                    doloribus excepturi facilis illum in pariatur porro possimus qui saepe.</p>
-                <p>Consequuntur corporis cum dignissimos, earum eos illum ipsam labore libero modi nihil non pariatur
-                    quas, quasi quis quos repellat reprehenderit sapiente suscipit. Aperiam blanditiis consequuntur
-                    debitis ea expedita itaque maiores nostrum odio officia quo rem, sunt unde veritatis voluptatem
-                    voluptatibus. Culpa dolore nihil odit quam quis voluptatem! Assumenda, nisi, non.</p>
-
+                <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            {% for carousel in carousel %}
+                            <div class="carousel-item {% if loop.index == 1 %} active {% endif %}" data-bs-interval="300">
+                                <img src="{{ ('/images//' ~ carousel.path) }}">
+                            </div>
+                            {% else %}
+                                Aucune photo trouvée.
+                            {% endfor %}
+                        </div>
+                 </div>
             </div>
         </div>
     </div>
