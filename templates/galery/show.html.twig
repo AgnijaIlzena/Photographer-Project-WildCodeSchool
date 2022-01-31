@@ -16,6 +16,7 @@
                         <img class="rounded mx-auto d-block" src="{{ ('/images/' ~ photo.path)|imagine_filter('square') }}"  alt="{{ photo.number }}">
                         <div class="text-center" >
                             <a href="{{ path("galery_photo_show", {galeryId: galery.id, photoId: photo.id}) }}" class="btn">Agrandir</a>
+
                         </div>
                     </div>
                 </div>

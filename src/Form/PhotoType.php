@@ -14,14 +14,12 @@ class PhotoType extends AbstractType
     {
         $builder
             ->add('number')
-            //->add('galery')
             ->add('galery', null, ['choice_label' => 'title'])
-            ->add('path', FileType::class, [
-                'label' => false,
-                'multiple' => true,
-                'mapped' => false,
-                'required' => false,
-            ]);
+            ->add('image', FileType::class, [
+                 'label' => false,
+                 'mapped' => false,
+                 'required' => false,
+        ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

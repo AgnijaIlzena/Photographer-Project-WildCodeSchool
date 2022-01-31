@@ -3,10 +3,12 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Photo;
+use App\Form\PhotosType;
 use App\Form\PhotoType;
 use App\Repository\PhotoRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -34,8 +36,23 @@ class PhotoController extends AbstractController
         $photo = new Photo();
         $form = $this->createForm(PhotoType::class, $photo);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
+            //treatment of photos
+            /** @var UploadedFile $image */
+            $image = $form->get('image')->getData();
+
+            //generate new name of file
+            $file = md5(uniqid()) . '.' . $image->guessExtension();
+
+            //copy the file in upload folder
+            $image->move(
+                $this->getParameter('images_directory'),
+                $file
+            );
+
+            //stock the name in entity
+            $photo->setPath($file);
+
             $entityManager->persist($photo);
             $entityManager->flush();
 
@@ -44,6 +61,53 @@ class PhotoController extends AbstractController
 
         return $this->renderForm('adminDashboard/photo/new.html.twig', [
             'photo' => $photo,
+            'form' => $form,
+        ]);
+    }
+
+    /**
+     * @Route("/new2", name="photo_new2", methods={"GET", "POST"})
+     */
+    public function new2(Request $request, EntityManagerInterface $entityManager): Response
+    {
+        $photos = [
+            'photos' => [
+                new Photo(),
+                new Photo(),
+                new Photo(),
+            ]
+        ];
+
+        $form = $this->createForm(PhotosType::class, $photos);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            //treatment of photo
+            foreach ($form->get('photos') as $index => $singleForm) {
+                /** @var UploadedFile $image */
+                $image = $singleForm->get('image')->getData();
+
+                if ($image !== null) {
+                    //generate new name of file
+                    $file = md5(uniqid()) . '.' . $image->guessExtension();
+
+                    //copy the file in upload folder
+                    $image->move(
+                        $this->getParameter('images_directory'),
+                        $file
+                    );
+
+                    //stock the name in entity
+                    $photos['photos'][$index]->setPath($file);
+
+                    $entityManager->persist($photos['photos'][$index]);
+                    $entityManager->flush();
+                }
+            }
+
+            return $this->redirectToRoute('photo_index', [], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->renderForm('adminDashboard/photo/new.html.twig', [
             'form' => $form,
         ]);
     }
