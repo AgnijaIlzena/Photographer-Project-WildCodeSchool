@@ -25,7 +25,7 @@ class GaleryController extends AbstractController
     /**
      * @Route("/galery/{id}", requirements={"id"="\d+"}, methods={"GET"}, name="galery_show")
      */
-    public function show(Galery $id): Response
+    public function show(int $id): Response
     {
         $galery = $this->getDoctrine()
             ->getRepository(Galery::class)
