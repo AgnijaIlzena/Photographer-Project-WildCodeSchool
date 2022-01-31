@@ -17,7 +17,7 @@ class Photo
      */
     private int $id;
     /**
-     * @ORM\ManyToOne(targetEntity=Galery::class, inversedBy="photo")
+     * @ORM\ManyToOne(targetEntity=Galery::class, inversedBy="photos")
      * @ORM\JoinColumn(nullable=false)
      */
     private ?Galery $galery;
