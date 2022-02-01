@@ -19,6 +19,7 @@ class Photo
      * @ORM\Column(type="integer")
      */
     private int $id;
+
     /**
      * @ORM\ManyToOne(targetEntity=Galery::class, inversedBy="photos")
      * @ORM\JoinColumn(nullable=false)

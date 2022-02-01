@@ -51,6 +51,7 @@ class Galery
      */
     private Collection $photos;
 
+
     public function __construct()
     {
         $this->photos = new ArrayCollection();
