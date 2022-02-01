@@ -11,6 +11,7 @@
                 <th>Id</th>
                 <th>Path</th>
                 <th>Number</th>
+                <th>Gallery</th>
                 <th>Icon</th>
             </tr>
         </thead>
@@ -20,6 +21,7 @@
                 <td>{{ photo.id }}</td>
                 <td>{{ photo.path }}</td>
                 <td>{{ photo.number }}</td>
+                <td>{{ photo.galery.title }}</td>
                 <td><img  style="width: 40px; height: 40px" src="/uploads/{{ photo.path }}"></td>
                 <td>
                     <a href="{{ path('photo_show', {'id': photo.id}) }}">show</a>

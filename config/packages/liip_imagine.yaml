@@ -8,13 +8,13 @@ liip_imagine:
             filters:
                 upscale:
                     min: [1000, 600]
-                trumbnail:
+                thumbnail:
                     size: [1000, 600]
                     mode: outbound
         square:
-            quality: 70
+            quality: 50
             filters:
-                trumbnail:
-                    size: [400, 400]
+                thumbnail:
+                    size: [150, 150]
                     mode: outbound
 

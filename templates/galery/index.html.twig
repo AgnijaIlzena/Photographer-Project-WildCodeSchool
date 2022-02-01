@@ -3,14 +3,17 @@
 {% block title %} Galery{% endblock %}
 
 {% block body %}
-    <div class="card">
-        {% for galery in galeries %}
-        <h5 class="card-header">{{ galery.title }}</h5>
-        <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">{{ galery.description }}</p>
-            <a href="{{ path("galery_show", {id: galery.id}) }}" class="btn btn-primary">Voir les photos</a>
+
+    <div class="card text-center">
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+            {% for galery in galeries %}
+            <h3 class="card-header">{{ galery.title }}</h3>
+            <div class="card-body">
+                <p class="card-text">{{ galery.description }}</p>
+                <a href="{{ path("galery_show", {id: galery.id}) }}" class="btn btn-primary">Voir les photos</a>
+            </div>
         {% endfor %}
         </div>
     </div>
+
 {% endblock %}
