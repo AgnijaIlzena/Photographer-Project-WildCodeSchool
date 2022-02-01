@@ -34,12 +34,13 @@
             <div class="col-xs-12">
                 <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
-                            {% for carousel in carousel %}
-                            <div class="carousel-item {% if loop.index == 1 %} active {% endif %}" data-bs-interval="300">
-                                <img src="{{ ('/images//' ~ carousel.path) }}">
-                            </div>
-                            {% else %}
-                                Aucune photo trouvée.
+                            {{ dump(galery) }}
+                            {% for galery in galery %}
+                                    <div class="carousel-item {% if loop.index == 1 %} active {% endif %}" data-bs-interval="3000">
+                                        <img src="/uploads/{{ galery.path }}">
+                                    </div>
+                                    {% else %}
+                                    Aucune photo trouvée.
                             {% endfor %}
                         </div>
                  </div>
