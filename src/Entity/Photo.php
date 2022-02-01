@@ -4,9 +4,12 @@ namespace App\Entity;
 
 use App\Repository\PhotoRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=PhotoRepository::class)
+ * @UniqueEntity(fields={"galery", "number"}, message="This number is already in use within your gallery.")
  */
 class Photo
 {
@@ -29,6 +32,7 @@ class Photo
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     * @Assert\Regex(pattern="#^[1-9]+[0-9]*$#", message="Positive number required")
      */
     private ?int $number;
 
