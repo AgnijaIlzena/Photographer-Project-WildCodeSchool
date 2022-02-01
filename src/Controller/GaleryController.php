@@ -4,21 +4,21 @@ namespace App\Controller;
 
 use App\Entity\Galery;
 use App\Entity\Photo;
+use App\Repository\GaleryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 class GaleryController extends AbstractController
 {
     /**
      * @Route("/galery", name="galery_index")
      */
-    public function index(): Response
+    public function index(GaleryRepository $galeryRepository): Response
     {
-        return $this->render('galery/index.html.twig', [
-            'galeries' => $this->getDoctrine()
-                ->getRepository(Galery::class)
-                ->findAll()
+        return $this->render('/galery/index.html.twig', [
+            'galeries' => $galeryRepository->findAll(),
         ]);
     }
 
@@ -33,14 +33,12 @@ class GaleryController extends AbstractController
 
         if (!$galery) {
             throw $this->createNotFoundException(
-                'No galery with id : ' . $id . ' found in galeries table.'
+                'No galery found in galeries table.'
             );
         }
 
-        $photos = $galery->getPhotos();
-
         return $this->render('galery/show.html.twig', [
-            'galery' => $galery, 'photos' => $photos
+            'galery' => $galery,
         ]);
     }
 

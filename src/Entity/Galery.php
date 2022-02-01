@@ -44,6 +44,11 @@ class Galery
      */
     private Collection $photos;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private ?string $slug;
+
     public function __construct()
     {
         $this->photos = new ArrayCollection();
@@ -127,6 +132,18 @@ class Galery
                 $photo->setGalery(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
 
         return $this;
     }
