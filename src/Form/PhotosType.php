@@ -16,7 +16,9 @@ class PhotosType extends AbstractType
         $builder
             ->add('photos', CollectionType::class, [
                 'entry_type' => PhotoType::class,
-                'allow_add' => true,
+                'entry_options' => [
+                    'image_is_required' => false,
+                ]
             ]);
     }
 }
