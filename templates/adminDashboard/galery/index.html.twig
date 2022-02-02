@@ -4,16 +4,15 @@
 
 {% block body %}
 {{ include('adminDashboard/admin/_adminNavBar.html.twig') }}
-<section class="jumbotron" style="background-color: white;">
-    <div class="card">
-        <div class="card-header">
-            <h4><span class="badge badge-secondary badge-pill">All Galeries</span></h4>
+<section class="jumbotron"  style="background-color: white;">
+   <div class="card mb-3">
+        <div class="card-header bg-warning" style="width:95%; height: 10%; position: relative; bottom:20px; left:20px;" >
+            <h4 class="card-title text-light text-uppercase">Galeries</h4>
         </div>
-        <div class="card-body">
-    <table class="table table-md table-responsive-lg table-hover text-center ">
+        <div class="card-body table-responsive">
+    <table class="table table-md  table-hover text-center">
         <thead class="text-uppercase">
             <tr class="">
-                <th style="width:5%">Id</th>
                 <th style="width:20%">Title</th>
                 <th style="width:5%">Year</th>
                 <th style="width:20%"></th>
@@ -23,7 +22,6 @@
         <tbody>
         {% for galery in galeries %}
             <tr>
-                <td>{{ galery.id }}</td>
                 <td>{{ galery.title }}</td>
                 <td>{{ galery.year }}</td>
                 <td>
@@ -40,7 +38,9 @@
         </tbody>
     </table>
         </div>
-    <a class="btn btn-primary" href="{{ path('admin_galery_new') }}" role="button">create NEW gallery</a>
-    </div>
+        </div>
+
+             <a class="btn btn-outline-primary btn-sm " href="{{ path('admin_galery_new') }}" role="button">create NEW gallery</a>
+
 </section>
 {% endblock %}

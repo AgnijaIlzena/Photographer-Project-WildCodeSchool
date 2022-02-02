@@ -4,28 +4,30 @@
 
 {% block body %}
 {{ include('adminDashboard/admin/_adminNavBar.html.twig') }}
-    <h4>(Photo index) Photos By Galeries: </h4>
-    <table class="table">
-        <thead>
+<section class="jumbotron"  style="background-color: white;">
+    <div class="card mb-3">
+        <div class="card-header bg-success" style="width:95%; height: 10%; position: relative; bottom:20px; left:20px;" >
+            <h4 class="card-title text-light text-uppercase">Photos</h4>
+        </div>
+        <div class="card-body table-responsive">
+    <table class="table table-md  table-hover text-center">
+        <thead class="text-uppercase">
             <tr>
-                <th>Id</th>
-                <th>Path</th>
-                <th>Number</th>
-                <th>Gallery</th>
-                <th>Icon</th>
+                <th style="width:5%">Number</th>
+                <th style="width:5%">Gallery</th>
+                <th style="width:5%">Icon</th>
+                <th style="width:5%"></th>
             </tr>
         </thead>
         <tbody>
         {% for photo in photos %}
             <tr>
-                <td>{{ photo.id }}</td>
-                <td>{{ photo.path }}</td>
                 <td>{{ photo.number }}</td>
                 <td>{{ photo.galery.title }}</td>
                 <td><img  style="width: 40px; height: 40px" src="/uploads/{{ photo.path }}"></td>
                 <td>
-                    <a href="{{ path('photo_show', {'id': photo.id}) }}">show</a>
-                    <a href="{{ path('photo_edit', {'id': photo.id}) }}">edit</a>
+                    <a class="btn btn-outline-success btn-sm" href="{{ path('photo_show', {'id': photo.id}) }}" role="button">show</a>
+                    <a class="btn btn-outline-warning btn-sm" href="{{ path('photo_edit', {'id': photo.id}) }}" role="button">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -35,5 +37,8 @@
         {% endfor %}
         </tbody>
     </table>
-    <a href="{{ path('photo_new') }}">Create new</a>
+    </div>
+    </div>
+    <a class="btn btn-outline-primary btn-sm" href="{{ path('photo_new') }}" role="button">create NEW photo</a>
+</section>
 {% endblock %}

@@ -34,7 +34,7 @@
                     <div class="carousel-inner">
                         {% for photo in galery.photos %}
                             <div class="carousel-item {% if loop.index == 1 %} active {% endif %}" data-bs-interval="2000">
-                                <img src="/uploads/{{ photo.path }}">d
+                                <img src="/uploads/{{ photo.path }}">
                             </div>
                         {% else %}
                             Aucune photo trouvée.
