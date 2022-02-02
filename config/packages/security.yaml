@@ -7,7 +7,6 @@ security:
             memory:
                 users:
                     admin: { password: '$2y$10$vcnYaMypZd8VNpdCHmCrxutGWKt4MHFT/p/ufBQHO49eS2dfIgp3G', roles: ['ROLE_ADMIN'] }
-
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
@@ -30,5 +29,7 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
+
          - { path: ^/admin, roles: ROLE_ADMIN }
         #- { path: ^/profile, roles: ROLE_USER }
+
