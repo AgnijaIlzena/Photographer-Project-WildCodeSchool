@@ -4,8 +4,10 @@
 
 {% block body %}
 {{ include('adminDashboard/admin/_adminNavBar.html.twig') }}
+<section class="jumbotron" style="background-color: white;">
     <h4>Create new Galery</h4>
     {{ include('adminDashboard/galery/_form.html.twig') }}
     <a href="{{ path('admin_galery_index') }}">back to list</a>
+</section>
 {% endblock %}
 

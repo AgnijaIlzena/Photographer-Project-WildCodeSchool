@@ -4,16 +4,20 @@
 
 {% block body %}
 {{ include('adminDashboard/admin/_adminNavBar.html.twig') }}
-  <h4>All Galeries</h4>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Password</th>
-                <th>Year</th>
-                <th>actions</th>
+<section class="jumbotron" style="background-color: white;">
+    <div class="card">
+        <div class="card-header">
+            <h4><span class="badge badge-secondary badge-pill">All Galeries</span></h4>
+        </div>
+        <div class="card-body">
+    <table class="table table-md table-responsive-lg table-hover text-center ">
+        <thead class="text-uppercase">
+            <tr class="">
+                <th style="width:5%">Id</th>
+                <th style="width:20%">Title</th>
+                <th style="width:5%">Year</th>
+                <th style="width:20%"></th>
+                <th style="width:7%">Password</th>
             </tr>
         </thead>
         <tbody>
@@ -21,13 +25,12 @@
             <tr>
                 <td>{{ galery.id }}</td>
                 <td>{{ galery.title }}</td>
-                <td>{{ galery.description }}</td>
-                <td>{{ galery.password }}</td>
                 <td>{{ galery.year }}</td>
                 <td>
-                    <a href="{{ path('admin_galery_show', {'id': galery.id}) }}">show</a>
-                    <a href="{{ path('admin_galery_edit', {'id': galery.id}) }}">edit</a>
-                </td>
+                    <a class="btn btn-outline-success btn-sm" href="{{ path('admin_galery_show', {'id': galery.id}) }}" role="button">show</a>
+                    <a class="btn btn-outline-warning btn-sm" href="{{ path('admin_galery_edit', {'id': galery.id}) }}" role="button">edit</a>
+               </td>
+                <td>{{ galery.password }}</td>
             </tr>
         {% else %}
             <tr>
@@ -36,6 +39,8 @@
         {% endfor %}
         </tbody>
     </table>
-    <a href="{{ path('admin_galery_new') }}">Create new Galery</a>
-
+        </div>
+    <a class="btn btn-primary" href="{{ path('admin_galery_new') }}" role="button">create NEW gallery</a>
+    </div>
+</section>
 {% endblock %}

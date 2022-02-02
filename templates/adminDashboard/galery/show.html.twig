@@ -4,28 +4,29 @@
 
 {% block body %}
 {{ include('adminDashboard/admin/_adminNavBar.html.twig') }}
-    <h1>Galery</h1>
+   <section class="jumbotron" style="background-color: white;">
+    <h4><span class="badge badge-secondary badge-pill">Gallery:{{ galery.title }}</span> </h4>
     <table class="table">
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ galery.id }}</td>
-            </tr>
             <tr>
                 <th>Title</th>
                 <td>{{ galery.title }}</td>
             </tr>
             <tr>
-                <th>Description</th>
-                <td>{{ galery.description }}</td>
+                <th>Year</th>
+                <td>{{ galery.year }}</td>
             </tr>
             <tr>
                 <th>Password</th>
                 <td>{{ galery.password }}</td>
             </tr>
             <tr>
-                <th>Year</th>
-                <td>{{ galery.year }}</td>
+                <th>Id</th>
+                <td>{{ galery.id }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ galery.description }}</td>
             </tr>
          </tbody>
     </table>
@@ -35,10 +36,11 @@
     {{ include('adminDashboard/galery/_delete_form.html.twig') }}
     <div class="row">
         {% for photo in galery.photos %}
-            <div class="col">
-                <img style="height: 100px;" src="{{ asset('/uploads/' ~ photo.path) }}" alt="Image" >
-                {{ include('adminDashboard/galery/_delete_photo_form.html.twig') }}
+            <div class="col-lg-3  text-center ">
+              <img class="image-fluid rounded-1 d-inline-block" style="padding: 20px 20px 5px 20px; height: 150px;" src="{{ asset('/uploads/' ~ photo.path) }}" alt="Image" >
+              {{ include('adminDashboard/galery/_delete_photo_form.html.twig') }}
             </div>
         {% endfor %}
     </div>
+   </section>
 {% endblock %}
