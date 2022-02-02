@@ -15,14 +15,14 @@ class HomeController extends AbstractController
      */
     public function index(): Response
     {
-        $publicgaleries = $this->getDoctrine()
+        $publicGaleries = $this->getDoctrine()
             ->getRepository(Galery::class)
             ->findBy(
                 ['password' => ''],
             );
 
-        shuffle($publicgaleries);
-        $galery = $publicgaleries[0];
+        shuffle($publicGaleries);
+        $galery = $publicGaleries[0];
 
         return $this->render(
             'home/index.html.twig',
