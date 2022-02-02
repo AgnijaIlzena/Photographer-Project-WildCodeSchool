@@ -33,7 +33,6 @@ class Galery
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private ?string $password;
-
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
@@ -44,10 +43,6 @@ class Galery
      */
     private Collection $photos;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private ?string $slug;
 
     public function __construct()
     {
@@ -83,17 +78,6 @@ class Galery
         return $this;
     }
 
-    public function getPassword(): ?string
-    {
-        return $this->password;
-    }
-
-    public function setPassword(?string $password): self
-    {
-        $this->password = $password;
-
-        return $this;
-    }
     public function getYear(): ?int
     {
         return $this->year;
@@ -136,15 +120,19 @@ class Galery
         return $this;
     }
 
-    public function getSlug(): ?string
+    /**
+     * @return string|null
+     */
+    public function getPassword(): ?string
     {
-        return $this->slug;
+        return $this->password;
     }
 
-    public function setSlug(string $slug): self
+    /**
+     * @param string|null $password
+     */
+    public function setPassword(?string $password): void
     {
-        $this->slug = $slug;
-
-        return $this;
+        $this->password = $password;
     }
 }
