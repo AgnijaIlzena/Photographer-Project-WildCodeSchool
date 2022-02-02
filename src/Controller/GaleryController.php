@@ -17,8 +17,14 @@ class GaleryController extends AbstractController
      */
     public function index(GaleryRepository $galeryRepository): Response
     {
-        return $this->render('/galery/index.html.twig', [
-            'galeries' => $galeryRepository->findAll(),
+        $password = $_GET['password'] ?? null;
+
+        $galeries = $this->getDoctrine()
+            ->getRepository(Galery::class)
+            ->findBy(['password' => $password]);
+
+        return $this->render('galery/index.html.twig', [
+            'galeries' => $galeries,
         ]);
     }
 
