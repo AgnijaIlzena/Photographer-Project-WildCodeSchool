@@ -10,36 +10,38 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <img src="/images/photographer.jpg" alt="photographer" />
+                <img src="/images/photographer.jpg" height="90%" width="95%" alt="photographer" />
             </div>
-            <div class="col-md-8"></div>
+            <div class="col-md-8">
             <h1> A propos de moi</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquam ea eos optio perspiciatis
-                praesentium, similique soluta veritatis. Adipisci aliquid animi debitis, dolorum eaque enim labore
-                necessitatibus, qui ratione sequi tenetur ut vitae voluptatum. Adipisci aliquid, animi, commodi
-                consectetur cum deleniti ducimus eaque earum eius facere in inventore ipsam iste iusto libero minima
-                mollitia nulla officiis optio quae quisquam rem repellendus reprehenderit repudiandae sapiente sint,
-                tempore ullam unde vel voluptatem. A ab aliquam amet architecto atque corporis delectus deleniti
-                distinctio dolor esse laborum libero nam obcaecati officiis omnis, placeat possimus quod ratione sequi
-                tempora tenetur totam vel veritatis voluptatibus voluptatum!</p>
-            <p>Aliquam autem et iusto minima nihil nisi voluptatem voluptates voluptatum? Accusamus aperiam aspernatur
-                debitis delectus explicabo labore, maiores natus nobis, numquam officia ratione suscipit totam ut. Amet
-                aut culpa debitis dolores doloribus eum expedita fugiat id ipsa, iure laborum maiores numquam odit,
-                porro, quasi quia quod recusandae repellat sapiente vitae? Nam necessitatibus obcaecati quo sed, sint
-                veniam voluptate. Consequuntur ipsam iusto nostrum pariatur quibusdam. Ad aspernatur eius harum id nihil
-                quam quas ut vel? Accusamus amet dolorem ex exercitationem molestiae omnis quas quod repellat rerum
-                veritatis. Ad atque ea facere id in, iste mollitia officiis placeat quisquam sapiente suscipit ut.</p>
-            <div class="col-xs-12">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab amet, blanditiis commodi cumque
-                    doloribus ea eligendi ex expedita fuga harum incidunt iste maxime modi mollitia numquam perspiciatis
-                    quam, quia quos repellendus, rerum sunt tenetur vero voluptates. Accusamus, aliquid dicta, dolores
-                    doloribus excepturi facilis illum in pariatur porro possimus qui saepe.</p>
-                <p>Consequuntur corporis cum dignissimos, earum eos illum ipsam labore libero modi nihil non pariatur
-                    quas, quasi quis quos repellat reprehenderit sapiente suscipit. Aperiam blanditiis consequuntur
-                    debitis ea expedita itaque maiores nostrum odio officia quo rem, sunt unde veritatis voluptatem
-                    voluptatibus. Culpa dolore nihil odit quam quis voluptatem! Assumenda, nisi, non.</p>
+            <p>L’univers de la photographie m’a toujours attiré depuis le plus jeune âge.
 
+            <p>Passionné par mon travail de photographe, Je me déplace sur toute la France
+                    et à l'étranger.</p>
+
+            <p>Vous trouverez sur le site des exemples de mes travaux</p>
+
+            <p>N’hésitez pas à me contacter pour vos projets photographiques. Je me consacrerais totalement à vous en prenant en compte vos différents besoins.</p>
+            </div>
+            {#  <div class="col-xs-12">
+                   {%  for photo in galery.photos %}
+                     <img src="/uploads/{{ photo.path }}">
+                     {% endfor %}
+            </div> #}
+
+            <div class="col-md-12">
+                <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        {% for photo in galery.photos %}
+                            <div class="carousel-item {% if loop.index == 1 %} active {% endif %}" data-bs-interval="2000">
+                                <img src="/uploads/{{ photo.path }}">d
+                            </div>
+                        {% else %}
+                            Aucune photo trouvée.
+                        {% endfor %}
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    <div>
 {% endblock %}
