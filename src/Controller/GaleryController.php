@@ -8,17 +8,22 @@ use App\Repository\GaleryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 class GaleryController extends AbstractController
 {
     /**
      * @Route("/galery", name="galery_index")
      */
-    public function index(GaleryRepository $galeryRepository): Response
+    public function index(): Response
     {
-        return $this->render('/galery/index.html.twig', [
-            'galeries' => $galeryRepository->findAll(),
+        $password = $_GET['password'] ?? '';
+
+        $galeries = $this->getDoctrine()
+            ->getRepository(Galery::class)
+            ->findBy(['password' => $password]);
+
+        return $this->render('galery/index.html.twig', [
+            'galeries' => $galeries,
         ]);
     }
 
@@ -41,6 +46,7 @@ class GaleryController extends AbstractController
             'galery' => $galery,
         ]);
     }
+
 
     /**
      * @Route("/galery/{galeryId}/photo/{photoId}", requirements={"id"="\d+"},
