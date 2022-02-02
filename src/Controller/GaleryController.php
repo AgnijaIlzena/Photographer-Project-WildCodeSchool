@@ -16,7 +16,7 @@ class GaleryController extends AbstractController
      */
     public function index(): Response
     {
-        $password = $_GET['password'] ?? '';
+        $password = $_GET['password'] ?? null;
 
         $galeries = $this->getDoctrine()
             ->getRepository(Galery::class)
