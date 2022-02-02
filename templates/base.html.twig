@@ -16,8 +16,11 @@
 	</head>
 	<body>
 	{% include 'Component/_header.html.twig' %}
-	{% block body %}
-	{% endblock %}
+
+		<div class="container mt-5">
+			{% block body %}{% endblock %}
+		</div>
+
 	{% include 'Component/_footer.html.twig' %}
 
 	{% block javascripts %}

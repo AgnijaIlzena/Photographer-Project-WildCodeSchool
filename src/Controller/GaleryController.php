@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Entity\Galery;
 use App\Entity\Photo;
-use App\Repository\GaleryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -16,7 +15,7 @@ class GaleryController extends AbstractController
      */
     public function index(): Response
     {
-        $password = $_GET['password'] ?? '';
+        $password = $_GET['password'] ?? null;
 
         $galeries = $this->getDoctrine()
             ->getRepository(Galery::class)
