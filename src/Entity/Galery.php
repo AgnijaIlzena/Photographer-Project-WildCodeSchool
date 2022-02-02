@@ -37,7 +37,6 @@ class Galery
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private ?string $password;
-
     /**
      * @ORM\Column(type="integer", nullable=true)
      * @Assert\Length(max="4", min="4")
@@ -86,17 +85,6 @@ class Galery
         return $this;
     }
 
-    public function getPassword(): ?string
-    {
-        return $this->password;
-    }
-
-    public function setPassword(?string $password): self
-    {
-        $this->password = $password;
-
-        return $this;
-    }
     public function getYear(): ?int
     {
         return $this->year;
@@ -137,5 +125,21 @@ class Galery
         }
 
         return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getPassword(): ?string
+    {
+        return $this->password;
+    }
+
+    /**
+     * @param string|null $password
+     */
+    public function setPassword(?string $password): void
+    {
+        $this->password = $password;
     }
 }
