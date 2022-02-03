@@ -2,46 +2,42 @@
 
 {% block title %}Home{% endblock %}
 
-{% block stylesheets %}
-{{ parent() }}
-{% endblock %}
-
 {% block body %}
+
+<section class="jumbotron" style="background-color: white">
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
-                <img src="/images/photographer.jpg" height="90%" width="95%" alt="photographer" />
-            </div>
-            <div class="col-md-8">
-            <h1> A propos de moi</h1>
-            <p>L’univers de la photographie m’a toujours attiré depuis le plus jeune âge.
-
-            <p>Passionné par mon travail de photographe, Je me déplace sur toute la France
-                    et à l'étranger.</p>
-
-            <p>Vous trouverez sur le site des exemples de mes travaux</p>
-
-            <p>N’hésitez pas à me contacter pour vos projets photographiques. Je me consacrerais totalement à vous en prenant en compte vos différents besoins.</p>
-            </div>
-            {#  <div class="col-xs-12">
-                   {%  for photo in galery.photos %}
-                     <img src="/uploads/{{ photo.path }}">
-                     {% endfor %}
-            </div> #}
-
-            <div class="col-md-12">
-                <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
+            <div class="col-sm-12-8">
+                {# Carousel #}
+                <div id="carouselExample" class="carousel slide"  data-bs-ride="carousel">
+                    <div class="carousel-inner" role="listbox">
                         {% for photo in galery.photos %}
-                            <div class="carousel-item {% if loop.index == 1 %} active {% endif %}" data-bs-interval="2000">
-                                <img src="/uploads/{{ photo.path }}">d
+                            <div class="carousel-item {% if loop.index == 1 %} active {% endif %}">
+                                <img class="d-block w-100" src="/uploads/{{ photo.path }}">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h2> Accédez à mes galeries pour découvrir mes portefeuilles de photographies </h2>
+                                    <input type="button" onclick="location.href='/galery';" value="Accès galeries" />
+                                </div>
                             </div>
-                        {% else %}
-                            Aucune photo trouvée.
                         {% endfor %}
                     </div>
                 </div>
             </div>
+
+            {# Biography #}
+            <div class="col-md-4 mt-5">
+                <img src="/images/photographer2.jpg" height="90%" width="95%" alt="photographer" />
+            </div>
+            <div class="col-md-8 mt-5">
+                <h1>A propos de moi</h1>
+                <p>L’univers de la photographie m’a toujours attiré depuis le plus jeune âge.</p>
+                <p>La photographie photographie permet de témoigner de l'éphémère à l'instant du déclic</p>
+                <p>Passionné par mon travail de photographe, Je me déplace sur toute la France
+                    et à l'étranger.</p>
+                <p>N’hésitez pas à me contacter pour vos projets photographiques. Je me consacrerais totalement à vous en prenant en compte vos différents besoins.</p>
+            </div>
         </div>
-    <div>
+    </div>
+</section>
+
 {% endblock %}
