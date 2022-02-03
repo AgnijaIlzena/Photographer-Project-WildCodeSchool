@@ -25,24 +25,6 @@ class AdminController extends AbstractController
           ]);
     }
 
-/*
-    /**
-     * @Route("/admin", name="admin_")
-     */
-    /*
-    public function index(Galery $galery): Response
-    {
-        $galery = $this->getDoctrine()
-            ->getRepository(GaleryRepository::class)
-            ->findAll();
-
-        return $this->render('adminDashboard/admin/index.html.twig', [
-            'dashboard' => 'Admin dashboard',
-            'galery' => $galery,
-        ]);
-    }
-  */
-
     /**
      * @Route ("/connect", name="connect")
      */
@@ -53,6 +35,8 @@ class AdminController extends AbstractController
 
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
+
+      //  return $this->redirectToRoute('admin_galery_show');
 
         return $this->render('connect/index.html.twig', [
             'last_username' => $lastUsername,
