@@ -1,9 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}New Galery{% endblock %}
+
 {% block header %}{{ include('adminDashboard/admin/_adminNavBar.html.twig') }}{% endblock %}
 
 {% block body %}
+<div class="container mt-5">
+    <div class="container mt-5">
 <section class="jumbotron" style="background-color: white;">
     <div class="card mb-3">
         <div class="card-header bg-warning" style="width:95%; height: 10%; position: relative; bottom:20px; left:20px;" >
@@ -13,5 +16,6 @@
     </div>
     {#  <a href="{{ path('admin_galery_index') }}">back to list</a>#}
 </section>
+    </div>
 {% endblock %}
 
