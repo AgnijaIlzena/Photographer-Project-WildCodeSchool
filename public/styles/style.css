@@ -11,11 +11,27 @@
 /********************* HOMEPAGE *********************/
 
 
-.text-center {
+.text-c {
     font-family: "Freestyle Script";
+    text-align: center;
     font-size: large;
 }
-
-.navbar-name{
+.navbar-name {
     text-align: justify;
 }
+.footer-top {
+    font-family: "Segoe UI Symbol";
+    text-align: center;
+}
+.carousel-inner {
+    opacity: 1;
+    background: none;
+}
+#carouselExample {
+    margin: 0 auto;
+    margin-top: 120px;
+}
+.carousel-item {
+    width: 100%;
+    height: auto;
+ }
