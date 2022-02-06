@@ -1,9 +1,36 @@
 {% form_theme form 'bootstrap_5_layout.html.twig' %}
 
+<div class="form border-light w-75" style="margin: 0 auto;}">
+    {{ form_start(form) }}
+    <div class="my-custom-class-for-errors">
+        {{ form_errors(form) }}
+    </div>
 
-<div class="form">
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn btn-outline-success btn-sm my-2">{{ button_label|default('Save') }}</button>
+        <div class="col form-label text-warning text-uppercase" style="font-weight: bold;">
+            {{ form_row(form.title) }}
+        </div>
+        <div class="col form-label text-warning text-uppercase" style="font-weight: bold;">
+            {{ form_row(form.description) }}
+        </div>
+        <div class="col form-label text-warning text-uppercase" style="font-weight: bold;" >
+            {{ form_row(form.password) }}
+        </div>
+        <div class="col form-label text-warning text-uppercase" style="font-weight: bold;">
+            {{ form_row(form.year) }}
+        </div>
+
+
+    <button class="btn btn-outline-success btn-sm my-2 w-25">{{ button_label|default('Save') }}</button>
+    {{ form_end(form) }}
+</div>
+
+{#
+<div class="form border-light w-75" style="margin: 0 auto;}">
+    {{ form_start(form) }}
+       <div class="form-control">
+            {{ form_widget(form) }}
+        </div>
+    <button class="btn btn-outline-success btn-sm my-2 w-25">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}
 </div>
+#}

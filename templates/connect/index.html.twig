@@ -1,8 +1,74 @@
-{% extends 'base.html.twig' %}
+{% extends 'adminBase.html.twig' %}
 
-{% block title %} Galery{% endblock %}
+{% block title %} Admin connect  {% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="/styles/styleConnect.css">
+{% endblock %}
+{% block head %}
+{#    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> #}
+{% endblock %}
 
 {% block body %}
+    <div id="login-button">
+        <img src="https://dqcgrsy5v35b9.cloudfront.net/cruiseplanner/assets/img/icons/login-w-icon.png">
+    </div>
+
+    <div id="container">
+        <h1>Log In</h1>
+       {# <span class="close-btn">
+          <img src="https://cdn4.iconfinder.com/data/icons/miu/22/circle_close_delete_-128.png">
+        </span>
+       #}
+
+        <!-- <form> -->
+        {% if error %}
+            <div class="errorMsg">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+
+        <form class="text-white" action="{{ path('connect') }}" method="post">
+           {#  <label for="username">Username:</label>#}
+            <input  class="text-white" type="text" id="username" name="_username" placeholder="username" value="{{ last_username }}"/>
+
+            {#  <label for="password">Password:</label>#}
+            <input class="text-white" type="password" id="password" name="_password" placeholder="password" />
+
+            <button class="btn btn-success " type="submit">login</button>
+        </form>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+
+    <script>
+        $('#login-button').click(function(){
+            $('#login-button').fadeOut("slow",function(){
+                $("#container").fadeIn();
+                TweenMax.from("#container", .4, { scale: 0, ease:Sine.easeInOut});
+                TweenMax.to("#container", .4, { scale: 1, ease:Sine.easeInOut});
+            });
+        });
+
+        {#
+        $('.close-btn').click(function(){
+            TweenMax.from("#container", .4, { scale: 1, ease:Sine.easeInOut});
+            TweenMax.to("#container", .4, { left:"0px", scale: 0, ease:Sine.easeInOut});
+            $("#container, #forgotten-container").fadeOut(800, function(){
+                $("#login-button").fadeIn(800);
+            });
+        });
+        #}
+    </script>
+
+
+{% endblock %}
+
+
+
+    {#
+
+        Old form original version
     {% if error %}
         <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
@@ -16,4 +82,5 @@
 
         <button type="submit">login</button>
     </form>
-{% endblock %}
+    #}
+

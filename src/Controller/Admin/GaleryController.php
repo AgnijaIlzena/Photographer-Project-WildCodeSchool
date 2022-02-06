@@ -68,7 +68,7 @@ class GaleryController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
-            return $this->redirectToRoute('galery_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('admin_galery_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('adminDashboard/galery/edit.html.twig', [

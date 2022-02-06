@@ -1,11 +1,28 @@
-{% extends 'base.html.twig' %}
+{% extends 'adminBase.html.twig' %}
 
 {% block title %}Edit Photo{% endblock %}
 {% block header %}{{ include('adminDashboard/admin/_adminNavBar.html.twig') }}{% endblock %}
+{% block stylesheets %}
+    <style>
 
-{% block body %}
-    <h1>Edit Photo</h1>
-{{ include('adminDashboard/photo/_form.html.twig', {'button_label': 'Update'}) }}
-    <a href="{{ path('photo_index') }}">back to list</a>
-{{ include('adminDashboard/photo/_delete_form.html.twig') }}
+        .photo {
+            background: rgb(16, 133, 100);
+            background: linear-gradient(286deg, rgba(16, 133, 100, 1) 0%, rgba(25, 135, 84, 1) 50%);
+        }
+
+    </style>
 {% endblock %}
+{% block body %}
+    <div class="container mt-5" style="width: 80%">
+        <div class="card mb-3">
+            <div class="photo card-header bg-success" style="width:95%; height: 10%; position: relative; bottom:20px; left:20px;" >
+                <h4 class="card-title text-light text-uppercase">edit photo: <span class="pr-3"></span>{{ photo.number }} </h4>
+            </div>
+
+                {{ include('adminDashboard/photo/_form.html.twig', {'button_label': 'Update'}) }}
+        </div>
+                  {#  <a href="{{ path('photo_index') }}">back to list</a> #}
+        {{ include('adminDashboard/photo/_delete_form.html.twig') }}
+    </div>
+{% endblock %}
+

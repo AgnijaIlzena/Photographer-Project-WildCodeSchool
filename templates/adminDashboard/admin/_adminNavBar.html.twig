@@ -6,42 +6,78 @@
         }
 
         .admin .container-fluid {
-          width: 77%;
+          width: 80%;
         }
+
+        .main  {
+            color: #DC3545;
+            float: left;
+            position: relative;
+            padding: 10px 20px;
+            overflow: hidden;
+        }
+
+        .main::after {
+            background-color: #DC3545;
+            content: "";
+            width: 0;
+            height: 1.5px;
+            left: 0;
+            bottom: 0;
+            transition: width 0.35s ease 0s;
+            position: absolute;
+        }
+
+         .main:hover::after {
+            width: 100%;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .logo {
+           color: #DC3545 !important;
+            font-size: large;
+            font-weight: bold;
+        }
+
     </style>
 </head>
 
-<nav class="admin navbar sticky-top navbar-expand-lg navbar-light bg-light" style="border: 0; -webkit-box-shadow: none; box-shadow: none;">
-<div class="admin container-fluid">
-<ul class="admin navbar-nav">
-    <li class="nav-item">
-        <a class="nav-link link-dark active px-4" aria-current="page" href="{{ path('admin_galery_index') }}">Galleries List</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link link-dark active px-4" aria-current="page" href="{{ path('admin_galery_new') }}">New Gallery</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link link-dark active px-4" href="{{ path('photo_index') }}">Photos View</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link link-dark active px-4" href="{{ path('photo_new2') }}">Add Photos</a>
-    </li>
-</ul>
+<nav class="admin navbar sticky-top navbar-expand-lg navbar-light bg-white" style="border: 0; -webkit-box-shadow: none; box-shadow: none;">
+    <div class="admin container-fluid ">
+        <ul class="admin navbar-nav">
+            <li class="main nav-item">
+                <a class="nav-link link-dark active px-4" aria-current="page" href="{{ path('admin_galery_index') }}">Galleries List</a>
+            </li>
+            <li class="main nav-item">
+                <a class="nav-link link-dark active px-4" aria-current="page" href="{{ path('admin_galery_new') }}">New Gallery</a>
+            </li>
+            <li class="main nav-item">
+                <a class="nav-link link-dark active px-4" href="{{ path('photo_index') }}">Photos View</a>
+            </li>
+            <li class="main nav-item">
+                <a class="nav-link link-dark active px-4" href="{{ path('photo_new2') }}">Add Photos</a>
+            </li>
+        </ul>
 
-<ul class="navbar-nav ">
+        <ul class="navbar-nav ">
 
-    <li class="">
-        <a class="nav-link text-uppercase">Admin Dashboard</a>
-    </li>
-    <li>
-        <a class="btn btn-outline-secondary px-3 mx-2" href="{{ path('galery_index') }}"  role="button">Gallery</a>
-    </li>
-    <li class="nav-item">
-        <form method="post" action="/logout">
-            <button type="submit" class="btn btn-outline-secondary"><i class=" play-icon fab fa-youtube" ></i>Log Out</button>
-        </form>
-    </li>
-</ul>
-</div>
+            <li class="">
+                <a class="logo nav-link text-uppercase">Admin </a>
+            </li>
+            <li>
+                <a class="btn btn-outline-secondary px-3 mx-2" href="{{ path('galery_index') }}"  role="button">Gallery</a>
+            </li>
+            <li class="nav-item">
+                <form method="post" action="/logout">
+                    <button type="submit" class="btn btn-outline-secondary">Log Out</button>
+                </form>
+            </li>
+        </ul>
+    </div>
 </nav>
 
