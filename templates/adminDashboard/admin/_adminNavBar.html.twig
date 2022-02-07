@@ -51,16 +51,16 @@
     <div class="admin container-fluid ">
         <ul class="admin navbar-nav">
             <li class="main nav-item">
-                <a class="nav-link link-dark active px-4" aria-current="page" href="{{ path('admin_galery_index') }}">Galleries List</a>
+                <a class="nav-link link-dark active px-4" aria-current="page" href="{{ path('admin_galery_index') }}">Liste des galeries</a>
             </li>
             <li class="main nav-item">
-                <a class="nav-link link-dark active px-4" aria-current="page" href="{{ path('admin_galery_new') }}">New Gallery</a>
+                <a class="nav-link link-dark active px-4" aria-current="page" href="{{ path('admin_galery_new') }}">Nouvelle Gallerie</a>
             </li>
             <li class="main nav-item">
-                <a class="nav-link link-dark active px-4" href="{{ path('photo_index') }}">Photos View</a>
+                <a class="nav-link link-dark active px-4" href="{{ path('photo_index') }}">Vue des Photos</a>
             </li>
             <li class="main nav-item">
-                <a class="nav-link link-dark active px-4" href="{{ path('photo_new2') }}">Add Photos</a>
+                <a class="nav-link link-dark active px-4" href="{{ path('photo_new2') }}">Ajouter des Photos</a>
             </li>
         </ul>
 
@@ -70,11 +70,11 @@
                 <a class="logo nav-link text-uppercase">Admin </a>
             </li>
             <li>
-                <a class="btn btn-outline-secondary px-3 mx-2" href="{{ path('galery_index') }}"  role="button">Gallery</a>
+                <a class="btn btn-outline-secondary px-3 mx-2" href="{{ path('galery_index') }}"  role="button">Galerie</a>
             </li>
             <li class="nav-item">
                 <form method="post" action="/logout">
-                    <button type="submit" class="btn btn-outline-secondary">Log Out</button>
+                    <button type="submit" class="btn btn-outline-secondary">Se déconnecter</button>
                 </form>
             </li>
         </ul>
