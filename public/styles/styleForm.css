@@ -22,7 +22,7 @@ border: solid 5px white;
     border:solid black;
 }
 .background{
-    background-image: url("/images/pexels-mengliu-di-3679525.jpg");
+    background-image: url("/images/pexels-mengliu-di-3679525.jpg"),linear-gradient(rgba(0,0,0,5.9),rgba(0,0,0,5.9));
     background-position: center;
     background-size: cover;
     padding-bottom: 15px;
