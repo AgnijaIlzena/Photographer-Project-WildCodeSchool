@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Photo;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\NotBlank;
@@ -16,7 +17,7 @@ class PhotoType extends AbstractType
     {
         if ($options['image_is_required']) {
             $imageConstraint = new NotBlank([
-                'message' => 'NOT BLANK !!',
+                'message' => 'Not Blank !',
             ]);
         } else {
             $imageConstraint = null;
@@ -24,8 +25,8 @@ class PhotoType extends AbstractType
 
 
         $builder
-            ->add('number')
-            ->add('galery', null, ['choice_label' => 'title'])
+            ->add('number',TextType::class, ['label' => 'numéro'])
+            ->add('galery', null, ['choice_label' => 'title', 'label' => 'titre'])
             ->add('image', FileType::class, [
                  'label' => false,
                  'mapped' => false,

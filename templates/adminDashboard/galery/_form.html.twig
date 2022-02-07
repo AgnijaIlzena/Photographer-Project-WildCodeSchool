@@ -7,20 +7,20 @@
     </div>
 
         <div class="col form-label text-warning text-uppercase" style="font-weight: bold;">
-            {{ form_row(form.title) }}
+            {{ form_row(form.title, {'label': 'Titre'}) }}
         </div>
         <div class="col form-label text-warning text-uppercase" style="font-weight: bold;">
             {{ form_row(form.description) }}
         </div>
         <div class="col form-label text-warning text-uppercase" style="font-weight: bold;" >
-            {{ form_row(form.password) }}
+            {{ form_row(form.password , {'label': 'Mot de passe'}) }}
         </div>
         <div class="col form-label text-warning text-uppercase" style="font-weight: bold;">
-            {{ form_row(form.year) }}
+            {{ form_row(form.year, {'label': 'année'}) }}
         </div>
 
 
-    <button class="btn btn-outline-success btn-sm my-2 w-25">{{ button_label|default('Save') }}</button>
+    <button class="btn btn-outline-success btn-sm my-2 w-25">{{ button_label|default('Sauvegarder') }}</button>
     {{ form_end(form) }}
 </div>
 
