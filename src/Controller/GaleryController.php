@@ -53,21 +53,22 @@ class GaleryController extends AbstractController
      * @Route("/galery/{id}/download", requirements={"id"="\d+"}, methods={"GET"}, name="galery_show_download")
      *
      * */
+    /*
+        public function downloadPhotos(DownloadManager $downloadManager, EntityManagerInterface $em): Response
+        {
 
-    public function downloadPhotos(DownloadManager $downloadManager, EntityManagerInterface $em): Response
-    {
+            $galery = $em->getRepository(Galery::class)->findOneBy([]);
 
-        $galery = $em->getRepository(Galery::class)->findOneBy([]);
+           $documents = $galery->getPhotos()->getValues();
+             foreach ($documents as $document)
+             {
+                 $files = $document->getPath();
+             }
+            $documents = ['0af93550b8fb169c59c54b81497dd35c.jpg',''];
+            $download = $downloadManager->zipDownload($documents);
 
-       /*$documents = $galery->getPhotos()->getValues();
-         foreach ($documents as $document)
-         {
-             $files = $document->getPath();
-         }*/
-        $documents = ['0af93550b8fb169c59c54b81497dd35c.jpg',''];
-        $download = $downloadManager->zipDownload($documents);
-
-        return $this->render('galery/show.html.twig', [
-            'galery' => $galery, 'download' => $download ]);
-    }
+            return $this->render('galery/show.html.twig', [
+                'galery' => $galery, 'download' => $download ]);
+        }
+        */
 }
