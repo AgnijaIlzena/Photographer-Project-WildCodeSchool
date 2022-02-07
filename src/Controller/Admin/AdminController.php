@@ -2,7 +2,11 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Galery;
+use App\Entity\Photo;
 use App\Form\AdminLoginType;
+use App\Repository\GaleryRepository;
+use App\Repository\PhotoRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -18,7 +22,7 @@ class AdminController extends AbstractController
     {
         return $this->render('adminDashboard/admin/index.html.twig', [
             'dashboard' => 'Admin dashboard',
-        ]);
+          ]);
     }
 
     /**

@@ -1,17 +1,9 @@
-{% extends 'base.html.twig' %}
+{% extends 'adminBase.html.twig' %}
 
 {% block title %}Admin Dashboard{% endblock %}
 
 {% block body %}
-{{ include('adminDashboard/admin/_adminNavBar.html.twig') }}
-<div class="example-wrapper">
-    <h1>This is {{ dashboard }} ! </h1>
-   <div>
-
-     <a href="{{ path('admin_galery_index') }}">Insert Gallery</a>
-     <a href="{{ path('photo_index') }}">Insert Photos</a>
+    {# {{ include('adminDashboard/admin/_adminNavBar.html.twig') }}  #}
+    <div class="example-wrapper">
     </div>
-</div>
 {% endblock %}
-
-

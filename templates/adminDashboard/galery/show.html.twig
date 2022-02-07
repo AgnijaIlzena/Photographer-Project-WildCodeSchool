@@ -1,44 +1,70 @@
-{% extends 'base.html.twig' %}
+{% extends 'adminBase.html.twig' %}
 
 {% block title %}Galery{% endblock %}
+{% block stylesheets %}
+    <style>
+        thead {
+            border-bottom: solid lightgrey 0.5px;
+        }
+
+        .card-body {
+            margin: 0 auto;
+            width: 50%;
+        }
+
+        .gallery {
+            background: rgb(255,168,7);
+            background: linear-gradient(286deg, rgba(255,168,7,1) 0%, rgba(255,193,7,1) 50%);
+        }
+    </style>
+{% endblock %}
 
 {% block body %}
-{{ include('adminDashboard/admin/_adminNavBar.html.twig') }}
-    <h1>Galery</h1>
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ galery.id }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ galery.title }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ galery.description }}</td>
-            </tr>
-            <tr>
-                <th>Password</th>
-                <td>{{ galery.password }}</td>
-            </tr>
-            <tr>
-                <th>Year</th>
-                <td>{{ galery.year }}</td>
-            </tr>
-         </tbody>
-    </table>
-    <a href="{{ path('admin_galery_index') }}">back to list</a>
-    <a href="{{ path('admin_galery_edit', {'id': galery.id}) }}">edit</a>
+    <div class="container mt-5" style="width: 80%">
+           <div class="card mb-3">
+               <div class=" gallery card-header bg-warning " style="width:95%; height: 10%; position: relative; bottom:20px; left:20px;" >
+                 <h4 class="card-title text-light text-uppercase">Gallery: <span class="pr-3"></span>{{ galery.title }} </h4>
+               </div >
+                   <div class="d-flex justify-content-start">
+                       <div class="mx-2"><a class="btn btn-outline-warning btn-sm" href="{{ path('admin_galery_edit', {'id': galery.id}) }}" role="button">edit gallery</a></div>
+                       <div class="mx-2">{{ include('adminDashboard/galery/_delete_form.html.twig') }}</div>
+                   </div>
+               <div class="card-body table-responsive">
+                    <table class="table table-hover text-center table-borderless">
+                        <tbody>
+                            <tr>
+                                <th class="text-uppercase text-warning">Title</th>
+                                <td>{{ galery.title }}</td>
+                            </tr>
+                            <tr>
+                                <th class="text-uppercase text-warning">Year</th>
+                                <td>{{ galery.year }}</td>
+                            </tr>
+                            <tr>
+                                <th class="text-uppercase text-warning">Password</th>
+                                <td>{{ galery.password }}</td>
+                            </tr>
+                            <tr>
+                                <th class="text-uppercase text-warning">Id</th>
+                                <td>{{ galery.id }}</td>
+                            </tr>
+                            <tr>
+                                <th class="text-uppercase text-warning">Description</th>
+                                <td>{{ galery.description }}</td>
+                            </tr>
+                         </tbody>
+                    </table>
+               </div>
+           </div>
 
-    {{ include('adminDashboard/galery/_delete_form.html.twig') }}
-    <div class="row">
-        {% for photo in galery.photos %}
-            <div class="col">
-                <img style="height: 100px;" src="{{ asset('/uploads/' ~ photo.path) }}" alt="Image" >
-                {{ include('adminDashboard/galery/_delete_photo_form.html.twig') }}
+           <div class="row">
+            {% for photo in galery.photos %}
+                <div class="col-lg-3  text-center ">
+                  <img class="image-fluid rounded-1 d-inline-block" style="padding: 20px 20px 5px 20px; height: 150px;" src="{{ asset('/uploads/' ~ photo.path) }}" alt="Image" >
+                  {{ include('adminDashboard/galery/_delete_photo_form.html.twig') }}
+                </div>
+            {% endfor %}
             </div>
-        {% endfor %}
+
     </div>
 {% endblock %}

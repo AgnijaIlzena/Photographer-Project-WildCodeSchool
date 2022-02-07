@@ -1,41 +1,57 @@
-{% extends 'base.html.twig' %}
+{% extends 'adminBase.html.twig' %}
 
 {% block title %}Galery index{% endblock %}
 
-{% block body %}
-{{ include('adminDashboard/admin/_adminNavBar.html.twig') }}
-  <h4>All Galeries</h4>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Password</th>
-                <th>Year</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for galery in galeries %}
-            <tr>
-                <td>{{ galery.id }}</td>
-                <td>{{ galery.title }}</td>
-                <td>{{ galery.description }}</td>
-                <td>{{ galery.password }}</td>
-                <td>{{ galery.year }}</td>
-                <td>
-                    <a href="{{ path('admin_galery_show', {'id': galery.id}) }}">show</a>
-                    <a href="{{ path('admin_galery_edit', {'id': galery.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-    <a href="{{ path('admin_galery_new') }}">Create new Galery</a>
+{% block stylesheets %}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <style>
+        thead {
+            border-bottom: solid lightgrey 0.5px;
+        }
 
+        .gallery {
+            background: rgb(255,168,7);
+            background: linear-gradient(286deg, rgba(255,168,7,1) 0%, rgba(255,193,7,1) 50%);
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="container mt-5 mb-5" style="width: 80%">
+       <div class="card mb-3 mb-3" >
+            <div class="gallery card-header bg-warning " style="width:95%; height: 10%; position: relative; bottom:20px; left:20px;" >
+                <h4 class="card-title text-light text-uppercase">Galleries</h4>
+            </div>
+                <div class="card-body table-responsive">
+                    <table class="table table-hover text-center table-borderless">
+                        <thead class="text-uppercase text-warning">
+                            <tr>
+                                <th style="width:20%">Title</th>
+                                <th style="width:5%">Year</th>
+                                <th style="width:20%"></th>
+                                <th style="width:7%">Password</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for galery in galeries %}
+                                <tr>
+                                    <td>{{ galery.title }}</td>
+                                    <td>{{ galery.year }}</td>
+                                    <td>
+                                        <a class="btn btn-outline-success btn-sm" href="{{ path('admin_galery_show', {'id': galery.id}) }}" role="button"><i class="fas fa-eye"></i></a>
+                                        <a class="btn btn-outline-warning btn-sm" href="{{ path('admin_galery_edit', {'id': galery.id}) }}" role="button"><i class="fas fa-edit"></i></a>
+                                    </td>
+                                    <td>{{ galery.password }}</td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td colspan="6">no records found</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+         <a class="btn btn-outline-primary btn-sm " href="{{ path('admin_galery_new') }}" role="button">create NEW gallery</a>
+    </div>
 {% endblock %}
