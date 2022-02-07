@@ -1,12 +1,17 @@
 {% block stylesheets %}
     <style>
+        .admin .navbar  {
+            border: 0;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+        }
         .admin .navbar-nav .nav-item.active .nav-link,
         .admin .navbar-nav .nav-item:hover .nav-link {
             color: #DC3545;
         }
 
         .admin .container-fluid {
-          width: 80%;
+            width: 80%;
         }
 
         .main  {
@@ -39,7 +44,7 @@
         }
 
         .logo {
-           color: #DC3545 !important;
+            color: #DC3545 !important;
             font-size: large;
             font-weight: bold;
         }
@@ -47,14 +52,14 @@
     </style>
 {% endblock %}
 
-<nav class="admin navbar sticky-top navbar-expand-lg navbar-light bg-white" style="border: 0; -webkit-box-shadow: none; box-shadow: none;">
+<nav class="admin navbar sticky-top navbar-expand-lg navbar-light bg-white" >
     <div class="admin container-fluid ">
         <ul class="admin navbar-nav">
             <li class="main nav-item">
-                <a class="nav-link link-dark active px-4" aria-current="page" href="{{ path('admin_galery_index') }}">Liste des galeries</a>
+                <a class="nav-link link-dark active px-4" aria-current="page" href="{{ path('admin_galery_index') }}">Liste des Galeries</a>
             </li>
             <li class="main nav-item">
-                <a class="nav-link link-dark active px-4" aria-current="page" href="{{ path('admin_galery_new') }}">Nouvelle Gallerie</a>
+                <a class="nav-link link-dark active px-4" aria-current="page" href="{{ path('admin_galery_new') }}">Nouvelle Galerie</a>
             </li>
             <li class="main nav-item">
                 <a class="nav-link link-dark active px-4" href="{{ path('photo_index') }}">Vue des Photos</a>
@@ -65,16 +70,15 @@
         </ul>
 
         <ul class="navbar-nav ">
-
             <li class="">
-                <a class="logo nav-link text-uppercase">Admin </a>
+                <a class="logo nav-link text-uppercase pt-3 mx-2">Admin </a>
             </li>
             <li>
-                <a class="btn btn-outline-secondary px-3 mx-2" href="{{ path('galery_index') }}"  role="button">Galerie</a>
+                <a class="btn btn-outline-secondary m-2" href="{{ path('galery_index') }}"  role="button">Galerie</a>
             </li>
             <li class="nav-item">
                 <form method="post" action="/logout">
-                    <button type="submit" class="btn btn-outline-secondary">Se déconnecter</button>
+                    <button type="submit" class="btn btn-outline-secondary m-2">Se déconnecter</button>
                 </form>
             </li>
         </ul>

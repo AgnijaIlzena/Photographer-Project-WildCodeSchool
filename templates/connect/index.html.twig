@@ -1,50 +1,24 @@
 {% extends 'adminBase.html.twig' %}
 
-{% block title %} Admin connect  {% endblock %}
+{% block title %} Admin connect {% endblock %}
 {% block stylesheets %}
     <link rel="stylesheet" href="/styles/styleConnect.css">
 {% endblock %}
-
 {% block header %} {% endblock %}
 
 {% block body %}
-    <div id="login-button">
-        <img src="https://dqcgrsy5v35b9.cloudfront.net/cruiseplanner/assets/img/icons/login-w-icon.png">
-    </div>
-
     <div id="container">
-        <h1>Log In</h1>
-
-        <!-- <form> -->
-        {% if error %}
-            <div class="errorMsg">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-        {% endif %}
-
+        <h1>Se connecter</h1>
         <form class="text-white" action="{{ path('connect') }}" method="post">
-           {#  <label for="username">Username:</label>#}
-            <input  class="text-white" type="text" id="username" name="_username" placeholder="username" value="{{ last_username }}"/>
-
-            {#  <label for="password">Password:</label>#}
-            <input class="text-white" type="password" id="password" name="_password" placeholder="password" />
-
-            <button class="btn btn-success " type="submit">login</button>
+            {% if error %}
+                <div class="errorMsg">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
+                <input  class="text-white" type="text" id="username" name="_username" placeholder="username" value="{{ last_username }}"/>
+                <input class="text-white" type="password" id="password" name="_password" placeholder="password" />
+                <button class="btn btn-success " type="submit">Valider</button>
         </form>
     </div>
 {% endblock %}
 
-{% block javascripts %}
-
-    <script>
-        $('#login-button').click(function(){
-            $('#login-button').fadeOut("slow",function(){
-                $("#container").fadeIn();
-                TweenMax.from("#container", .4, { scale: 0, ease:Sine.easeInOut});
-                TweenMax.to("#container", .4, { scale: 1, ease:Sine.easeInOut});
-            });
-        });
-    </script>
-
-
-{% endblock %}
 
 
