@@ -1,0 +1,34 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    <link rel="stylesheet" href="public/styles/styleForm.css">
+    <link rel="stylesheet" href="public/styles/form.css">
+      {#  {{ form_start(form) }}
+    {{ form_end(form) }} #}
+    {% block container %}
+        <div class="background">
+        <div class="Title" style="text-align: center;text-transform:uppercase;padding-top: 10px;width: 80%;margin: auto"><h1 style="font-size: 70px;border-bottom: solid white;color: white">Contact</h1></div>
+        <div class="container mt-5 mb-5" style="width: 80%  ;text-align: center">
+            <div class="card mb-3" style="width: 50%;margin: auto">
+    {{ form_start(form) }}
+    <div>
+        {{ form_errors(form) }}
+    </div>
+    <div class="col form-label text-uppercase" style="font-size:30px;">
+        {{ form_row(form.name) }}
+    </div>
+    <div class="col form-label text-uppercase" style="font-size:30px;">
+        {{ form_row(form.mail) }}
+    </div>
+    <div class="col form-label text-uppercase" style="font-size:30px;">
+        {{ form_row(form.message) }}
+    </div>
+    <div class="col form-label text-uppercase" style=""
+        {{ form_row(form.submit) }}
+    </div>
+    {{ form_end(form) }}
+            </div>
+        </div>
+        </div>
+        {% endblock %}
+
+{% endblock %}
