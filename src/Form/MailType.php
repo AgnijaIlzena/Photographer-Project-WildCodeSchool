@@ -10,16 +10,15 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
-
 class MailType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name',TextType::class)
-            ->add('mail',EmailType::class)
-            ->add('message',TextareaType::class)
-            ->add('submit',SubmitType::class)
+            ->add('name', TextType::class)
+            ->add('mail', EmailType::class)
+            ->add('message', TextareaType::class)
+            ->add('submit', SubmitType::class)
         ;
     }
 }

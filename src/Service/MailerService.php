@@ -8,20 +8,19 @@ use Symfony\Component\Mime\Email;
 
 class MailerService
 {
-     public function sendEmail(): void
+    public function sendEmail(): void
     {
         $email = (new Email())
-            ->from('mail')
-            ->to('baki')
-            //->cc('cc@example.com')
-            //->bcc('bcc@example.com')
-            //->replyTo('fabien@example.com')
-            //->priority(Email::PRIORITY_HIGH)
-            ->subject('Time for Symfony Mailer!')
-            ->text('Sending emails is fun again!')
-            ->html('<p>See Twig integration for better HTML integration!</p>');
+           ->from('mail')
+           ->to('baki')
+           //->cc('cc@example.com')
+           //->bcc('bcc@example.com')
+           //->replyTo('fabien@example.com')
+           //->priority(Email::PRIORITY_HIGH)
+           ->subject('Time for Symfony Mailer!')
+           ->text('Sending emails is fun again!')
+           ->html('<p>See Twig integration for better HTML integration!</p>');
 
         $this->sendEmail();
     }
-
 }

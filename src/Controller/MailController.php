@@ -14,7 +14,6 @@ use App\Form\MailType;
 
 class MailController extends AbstractController
 {
-
   /*  public function new (MailerService  $mailerService): Response
     {
         $mailerService->sendEmail();
@@ -38,10 +37,7 @@ class MailController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
-           $form->getData();
-
-
+            $form->getData();
             return $this->redirectToRoute('admin_');
         }
 
