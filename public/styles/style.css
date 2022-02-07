@@ -3,13 +3,7 @@
 }
 
 
-
-
-
-
-
 /********************* HOMEPAGE *********************/
-
 
 .text-c {
     font-family: "Freestyle Script";
@@ -40,4 +34,19 @@
 .carousel-caption {
     top: 0;
     bottom: auto;
+}
+
+/************* GALLERY ******************************/
+
+.bg-img{
+    background-image: url("/images/pont-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.gallery{
+    background-color: #3b6fc9;
+    width: 250px;
+    height: 250px;
+
 }
