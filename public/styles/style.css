@@ -2,6 +2,14 @@
     --white-bckg: #FFFFFF;
 }
 
+/********************* HOMEPAGE *********************/
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
 
 /********************* HOMEPAGE *********************/
 

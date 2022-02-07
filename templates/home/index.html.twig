@@ -1,27 +1,28 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Home{% endblock %}
+
 {% block stylesheets %}
     <link rel="stylesheet" href="/style/styleConnect.css">
 {% endblock %}
 
 {% block body %}
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-12-8">
-                {# Carousel #}
-                <div id="carouselExample" class="carousel slide"  data-bs-ride="carousel" data-interval="2000">
-                    <div class="carousel-inner" role="listbox">
-                        {% for photo in galery.photos %}
-                            <div class="carousel-item {% if loop.index == 1 %} active {% endif %}">
-                                <img class="d-block w-100" src="/uploads/{{ photo.path }}">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <div id="login-button">
-                                        <img src="https://dqcgrsy5v35b9.cloudfront.net/cruiseplanner/assets/img/icons/login-w-icon.png">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12-8">
+                    {# Carousel #}
+                    <div id="carouselExample" class="carousel slide"  data-bs-ride="carousel">
+                        <div class="carousel-inner" role="listbox">
+                            {% for photo in galery.photos %}
+                                <div class="carousel-item {% if loop.index == 1 %} active {% endif %}">
+                                    <img class="d-block w-100" src="/uploads/{{ photo.path }}">
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <div id="login-button">
+                                            <a href="{{ path("galery_index") }}"><img src="{{ ('/images/loginicon.png')|imagine_filter('logoLogin') }}" alt="logo login"/></a>
+                                        </div>
+                                        <p> Accédez à mes galeries de photos </p>
                                     </div>
-                                    <h2> Accédez à mes galeries pour découvrir mes portefeuilles de photographies </h2>
-                                    <input type="button" onclick="location.href='/galery';" value="Accès galeries" />
                                 </div>
                             {% endfor %}
                         </div>
@@ -42,12 +43,5 @@
                 </div>
             </div>
         </div>
-<<<<<<< HEAD
-    </div>
-
-
-=======
-    </section>
->>>>>>> 9f7b720b6a65d56867cc265dee28b09ab88390c5
 
 {% endblock %}
