@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Service\MailerService;
-use phpDocumentor\Reflection\Types\This;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component;
 use Symfony\Component\HttpFoundation\Request;
@@ -14,14 +13,6 @@ use App\Form\MailType;
 
 class MailController extends AbstractController
 {
-  /*  public function new (MailerService  $mailerService): Response
-    {
-        $mailerService->sendEmail();
-        return $this->render('Contact/contact.html.twig', ['mail'=> $mailerService]);
-    }*//*
-    /**
-     * @Route("/contact", name="mail_")
-     */
     public function mail(): Response
     {
         $mailerService = new MailerService();
@@ -29,7 +20,7 @@ class MailController extends AbstractController
     }
 
     /**
-     * @Route("/contact", name="contact_")
+     * @Route("/contact", name="contact")
      */
     public function new(Request $request): Response
     {
@@ -38,7 +29,7 @@ class MailController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $form->getData();
-            return $this->redirectToRoute('admin_');
+            return $this->redirectToRoute('contact');
         }
 
         return $this->render('Contact/contact.html.twig', [
