@@ -9,8 +9,8 @@
         }
     </style>
 {% endblock %}
+{% block header %}{{ parent() }}{% endblock %}
 {% block body %}
-    {{ include('adminDashboard/admin/_adminNavBar.html.twig') }}
      <div class="container mt-5" style="width: 80%">
         <div class="card mb-3">
             <div class="gallery card-header bg-warning " style="width:95%; height: 10%; position: relative; bottom:20px; left:20px;" >

@@ -36,8 +36,6 @@ class AdminController extends AbstractController
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
 
-      //  return $this->redirectToRoute('admin_galery_show');
-
         return $this->render('connect/index.html.twig', [
             'last_username' => $lastUsername,
             'error' => $error,

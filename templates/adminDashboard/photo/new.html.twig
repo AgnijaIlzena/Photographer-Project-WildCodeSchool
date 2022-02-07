@@ -1,7 +1,7 @@
 {% extends 'adminBase.html.twig' %}
 
 {% block title %}New Photo{% endblock %}
-{% block header %}{{ include('adminDashboard/admin/_adminNavBar.html.twig') }}{% endblock %}
+{% block header %}{{ parent() }}{% endblock %}
 {% block stylesheets %}
     <style>
         .photo {

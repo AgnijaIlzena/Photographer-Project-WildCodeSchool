@@ -13,7 +13,7 @@
 	</head>
 
 	<body>
-	 {% block header %} {% endblock %}
+	 {% block header %} {{ include('adminDashboard/admin/_adminNavBar.html.twig') }} {% endblock %}
 		{% block body %}
 		{% endblock %}
 
