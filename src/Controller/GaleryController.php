@@ -3,10 +3,12 @@
 namespace App\Controller;
 
 use App\Entity\Galery;
-use App\Entity\Photo;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Service\DownloadManager;
+use ZipArchive;
 
 class GaleryController extends AbstractController
 {
@@ -46,29 +48,26 @@ class GaleryController extends AbstractController
         ]);
     }
 
-
     /**
-     * @Route("/galery/{galeryId}/photo/{photoId}", requirements={"id"="\d+"},
-     *     methods={"GET"}, name="galery_photo_show")
-     */
-    public function showOne(int $galeryId, int $photoId): Response
+     * Create and download some zip documents.
+     * @Route("/galery/{id}/download", requirements={"id"="\d+"}, methods={"GET"}, name="galery_show_download")
+     *
+     * */
+
+    public function downloadPhotos(DownloadManager $downloadManager, EntityManagerInterface $em): Response
     {
-        $galery = $this->getDoctrine()
-            ->getRepository(Galery::class)
-            ->findOneBy(['id' => $galeryId]);
 
-        if (!$galery) {
-            throw $this->createNotFoundException(
-                'No galery with id : ' . $galeryId . ' found in galeries table.'
-            );
-        }
+        $galery = $em->getRepository(Galery::class)->findOneBy([]);
 
-        $photo = $this->getDoctrine()
-            ->getRepository(Photo::class)
-            ->findOneBy(['id' => $photoId]);
+       /*$documents = $galery->getPhotos()->getValues();
+         foreach ($documents as $document)
+         {
+             $files = $document->getPath();
+         }*/
+        $documents = ['0af93550b8fb169c59c54b81497dd35c.jpg',''];
+        $download = $downloadManager->zipDownload($documents);
 
-        return $this->render('galery/photo_show.html.twig', [
-            'galery' => $galery, 'photo' => $photo
-        ]);
+        return $this->render('galery/show.html.twig', [
+            'galery' => $galery, 'download' => $download ]);
     }
 }

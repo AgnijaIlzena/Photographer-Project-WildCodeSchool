@@ -19,3 +19,14 @@
 .navbar-name{
     text-align: justify;
 }
+
+
+
+
+/************* GALLERY ******************************/
+
+.bg-img{
+    background-image: url("/images/pont-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}

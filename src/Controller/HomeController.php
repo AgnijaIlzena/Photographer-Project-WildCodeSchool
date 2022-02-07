@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\Photo;
 use App\Entity\Galery;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,10 +17,11 @@ class HomeController extends AbstractController
         $publicGaleries = $this->getDoctrine()
             ->getRepository(Galery::class)
             ->findBy(
-                ['password' => ''],
+                ['password' => null],
             );
 
         shuffle($publicGaleries);
+
         $galery = $publicGaleries[0];
 
         return $this->render(
