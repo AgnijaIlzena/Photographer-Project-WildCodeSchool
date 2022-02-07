@@ -19,10 +19,12 @@
             <div class="my-custom-class-for-errors">
                 {{ form_errors(form) }}
             </div>
+
             <div class="form-control">
                 {{ form_widget(form) }}
             </div>
-            <button class="btn btn-outline-success btn-sm my-2 w-25">{{ button_label|default('Save') }}</button>
+
+            <button class="btn btn-outline-success btn-sm my-2 w-25">{{ button_label|default('Sauvegarder') }}</button>
         {{ form_end(form) }}
     </div>
 
