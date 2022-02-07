@@ -7,11 +7,11 @@
         <div class="col-10 row mx-auto row-cols-md-4">
                 {% for galery in galeries %}
                 <div class="col">
-                    <div class="card bg-light mb-3" style="max-width: 18rem;">
+                    <div class="card bg-light mb-3 gallery">
                         <div class="card-header">
-                            <h5 class="card-title">{{ galery.title }}</h5>
+                            <h5 class="card-title ">{{ galery.title }}</h5>
                         </div>
-                        <div class="card-body w-auto">
+                        <div class="card-body gallery">
                             <p class="card-text">{{ galery.description }}</p>
                             <a href="{{ path("galery_show", {id: galery.id}) }}" class="btn btn-primary">Voir les photos</a>
                         </div>
