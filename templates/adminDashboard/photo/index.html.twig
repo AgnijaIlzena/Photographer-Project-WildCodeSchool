@@ -1,39 +1,56 @@
-{% extends 'base.html.twig' %}
+{% extends 'adminBase.html.twig' %}
 
 {% block title %} Photos index. {% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <style>
+        thead {
+            border-bottom: solid lightgrey 0.5px;
+        }
+
+        .photo {
+            background: rgb(16, 133, 100);
+            background: linear-gradient(286deg, rgba(16, 133, 100, 1) 0%, rgba(25, 135, 84, 1) 50%);
+        }
+    </style>
+{% endblock %}
 
 {% block body %}
-{{ include('adminDashboard/admin/_adminNavBar.html.twig') }}
-    <h4>(Photo index) Photos By Galeries: </h4>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Path</th>
-                <th>Number</th>
-                <th>Gallery</th>
-                <th>Icon</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for photo in photos %}
-            <tr>
-                <td>{{ photo.id }}</td>
-                <td>{{ photo.path }}</td>
-                <td>{{ photo.number }}</td>
-                <td>{{ photo.galery.title }}</td>
-                <td><img  style="width: 40px; height: 40px" src="/uploads/{{ photo.path }}"></td>
-                <td>
-                    <a href="{{ path('photo_show', {'id': photo.id}) }}">show</a>
-                    <a href="{{ path('photo_edit', {'id': photo.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="4">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-    <a href="{{ path('photo_new') }}">Create new</a>
+    <div class="container mt-5 mb-5" style="width: 80%">
+        <div class="card mb-3 mb-3">
+            <div class="photo card-header bg-success " style="width:95%; height: 10%; position: relative; bottom:20px; left:20px;" >
+                <h4 class="card-title text-light text-uppercase">Photos</h4>
+            </div>
+                <div class="card-body table-responsive">
+                    <table class="table table-hover text-center table-borderless">
+                        <thead class="text-uppercase text-success">
+                            <tr>
+                                <th style="width:5%">Number</th>
+                                <th style="width:20%">Gallery</th>
+                                <th style="width:20%">Icon</th>
+                                <th style="width:20%"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for photo in photos %}
+                                <tr>
+                                    <td>{{ photo.number }}</td>
+                                    <td>{{ photo.galery.title }}</td>
+                                    <td><img  style="width: 40px; height: 40px" src="/uploads/{{ photo.path }}"></td>
+                                    <td>
+                                        <a class="btn btn-outline-success btn-sm" href="{{ path('photo_show', {'id': photo.id}) }}" role="button"><i class="fas fa-eye"></i></a>
+                                        <a class="btn btn-outline-warning btn-sm" href="{{ path('photo_edit', {'id': photo.id}) }}" role="button"><i class="fas fa-edit"></i></a>
+                                    </td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td colspan="4">no records found</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                 </div>
+             </div>
+        <a class="btn btn-outline-primary btn-sm" href="{{ path('photo_new') }}" role="button">create NEW photo</a>
+    </div>
 {% endblock %}
