@@ -18,6 +18,7 @@ security:
             form_login:
                 login_path: connect
                 check_path: connect
+                default_target_path: admin_galery_index
             logout:
                 path: app_logout
             # activate different ways to authenticate
