@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Galery;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -15,8 +16,7 @@ class GaleryType extends AbstractType
             ->add('title')
             ->add('description')
             ->add('password')
-            ->add('year')
-        ;
+            ->add('year');
     }
 
     public function configureOptions(OptionsResolver $resolver): void

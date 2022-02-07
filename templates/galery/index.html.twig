@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Galery{% endblock %}
+
+{% block body %}
+    <div class="col-10 row mx-auto row-cols-md-4">
+            {% for galery in galeries %}
+            <div class="col-sm">
+                <div class="card bg-light mb-3" style="max-width: 18rem;">
+                    <div class="card-header">
+                        <h5 class="card-title">{{ galery.title }}</h5>
+                    </div>
+                    <div class="card-body w-auto">
+                        <p class="card-text">{{ galery.description }}</p>
+                        <a href="{{ path("galery_show", {id: galery.id}) }}" class="btn btn-primary">Voir les photos</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    <div class="card text-center">
+        <div class="card-body">
+            <p class="card-text">Accéder à vos albums photos</p>
+
+            <form action="" method="get">
+                <label>Code D'accès</label>
+                <input name="password" type="password">
+                <button class="btn">Valider</button>
+            </form>
+        </div>
+    </div>
+
+
+{% endblock %}

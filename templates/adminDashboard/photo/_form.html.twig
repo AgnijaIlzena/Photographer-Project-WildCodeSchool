@@ -1,8 +1,16 @@
 {% form_theme form 'bootstrap_5_layout.html.twig' %}
 
+<style>
+    .col-form-label
+    {
+        display: none;
+    }
+</style>
+
+
 <div class="form">
-{{ form_start(form) }}
+    {{ form_start(form) }}
     {{ form_widget(form) }}
     <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+    {{ form_end(form) }}
 </div>
