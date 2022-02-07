@@ -26,12 +26,18 @@
 .carousel-inner {
     opacity: 1;
     background: none;
+/* width:100%;
+    max-height: 630px !important; */
 }
 #carouselExample {
     margin: 0 auto;
-    margin-top: 120px;
+    margin-top: 0px;
 }
 .carousel-item {
     width: 100%;
     height: auto;
  }
+.carousel-caption {
+    top: 0;
+    bottom: auto;
+}

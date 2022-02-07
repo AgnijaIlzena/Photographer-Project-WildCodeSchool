@@ -8,7 +8,6 @@
 /var/
 /vendor/
 .idea/
-/public/images/
 /public/uploads/
 
 ###< symfony/framework-bundle ###
