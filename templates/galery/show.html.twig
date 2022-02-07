@@ -16,7 +16,7 @@
             <div class="container-fluid bg-img mx-4 rounded mx-auto">
                 <div class="row row-cols-1 g-2 col-md-7 mx-auto">
                 {% for photo in galery.photos %}
-                    <div class="col-lg-4 col-sm-4  p-4">
+                    <div class="col-lg-4 col-sm-6 col-md-6 p-4 ">
                         <a href="{{ ('/uploads/' ~ photo.path)|imagine_filter('banner') }}" data-lightbox="{{ photo.number }}">
                             <img class="rounded" src="{{ ('/uploads/' ~ photo.path)|imagine_filter('square') }}"  alt="{{ photo.number }}">
                         </a>
