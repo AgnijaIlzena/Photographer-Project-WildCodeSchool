@@ -1,18 +1,22 @@
 {% extends "base.html.twig" %}
 {% block stylesheets %}
     <style>
+        .form-label.required{
+            color: rgba(233,233,233,0.72)
+        }
     .form-control {
     width: 50%;
     margin: auto;
     border: solid rgba(0,0,0,.125);
+        background-color:rgba(233,233,233,0.72);
     }
     .card{
     border: solid 5px white;
-    background-color:transparent;
+    background-color: rgba(0,0,0,0.72);
     }
     .btn-primary{
     width: 40%;
-    background-color: white;
+    background-color: rgba(233,233,233,0.72);
     border: black;
     font-size: 15px;
     text-transform: uppercase;
@@ -22,7 +26,6 @@
     .btn-primary:hover{
     background-color: white;
     color: black;
-    border:solid black;
     }
     .background{
     background-image: url("/images/pexels-mengliu-di-3679525.jpg");
@@ -33,19 +36,33 @@
     .form-label{
     color: white;
     }
+    .contactText{
+        float: right;
+        width: 48%;
+        color: rgba(233,233,233,0.72);
+    }
+    .contactText h1{
+        font-size: 30px;
+        text-transform: uppercase;
+    }
+    .contactText h4{
+        text-align: justify;
+        white-space: normal;
+
+    }
     </style>
 
 {% endblock %}
 {% block body %}
-    <link rel="stylesheet" href="public/styles/styleForm.css">
     <link rel="stylesheet" href="public/styles/form.css">
       {#  {{ form_start(form) }}
     {{ form_end(form) }} #}
     {% block container %}
         <div class="background">
-        <div class="Title" style="text-align: center;text-transform:uppercase;padding-top: 10px;width: 80%;margin: auto"><h1 style="font-size: 70px;border-bottom: solid white;color: white">Contact</h1></div>
-        <div class="container mt-5 mb-5" style="width: 80%  ;text-align: center">
-            <div class="card mb-3" style="width: 50%;margin: auto">
+        <div class="Title" style="text-align: center;text-transform:uppercase;padding-top: 10px;width: 80%;margin: auto"><h1 style="font-size: 70px;border-bottom: solid white;color: rgba(233,233,233,0.72)">Contact</h1></div>
+        <div class="container mt-5 mb-5 contact" style="width: 80%  ;text-align: center;background-color: rgba(0,0,0,0.72)">
+            <div class="contactText"><h1>Bienvenue dans la page Contact !</h1><h4>Vous pouvez nous contacter pour prendre des informations, pour nous partager vos idées pour vos futurs photos, en indiquant votre emplacement, le concept, le nombre de personnes et biensur aussi nous faires des retours après avoir rreçuvos photos en indiquant vos mécontentements et vos sentiments positivent également</h4></div>
+            <div class="card mb-3 contact" style="width: 50%;color: rgba(233,233,233,0.72)">
     {{ form_start(form) }}
     <div>
         {{ form_errors(form) }}
