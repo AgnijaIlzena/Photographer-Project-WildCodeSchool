@@ -92,14 +92,12 @@
 /************* GALLERY ******************************/
 
 .bg-img{
-    background-image: url("/images/pont-bg.jpg");
+    background-image: url("/images/forestNb.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .gallery{
-    background-color: #3b6fc9;
-    width: 250px;
+    width: 200px;
     height: 250px;
-
 }
