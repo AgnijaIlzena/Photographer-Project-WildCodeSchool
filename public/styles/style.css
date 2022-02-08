@@ -102,5 +102,54 @@
     width: 200px;
     height: 250px;
 }
+h1{
+    text-align: center;
+    text-transform: uppercase;
+    color:black;
+    width: 50%;
+    margin: auto;
+    border-bottom: solid rgba(185,185,185,0.72);
+    font-family: "Freestyle Script";
+}
+.hometext{
+    font-family: "Freestyle Script";
+    width: 49%;
+    padding-top: 35px;
+    margin: auto;
+    border-right: solid rgba(185,185,185,0.72);
+}
+p{
+    text-transform:uppercase;
+}
 
-
+@media (max-width: 768px){
+ .hometext{
+     width: 100%;
+ }
+    .navbar-brand img{
+        margin:auto;
+        height: 100px;
+        width: 110px;
+    }
+}
+@media (max-width: 1200px) {
+    .hometext {
+        width: 75%;
+    }
+}
+@media (min-width:768px) and (max-width: 992px) {
+.col-md-4.mt-5{
+    height: 400px;
+    width: 300px;
+}
+    .col-md-8.mt-5{
+        width: 420px;
+        height: auto;
+    }
+    .hometext p {
+        font-size: 11px;
+    }
+    h1{
+        font-size: 40px;
+    }
+}
