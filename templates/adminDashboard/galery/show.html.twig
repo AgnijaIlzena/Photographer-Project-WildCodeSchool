@@ -20,13 +20,13 @@
 {% endblock %}
 
 {% block body %}
-    <div class="container mt-5" style="width: 80%">
+    <div class="container mt-5 mb-5" style="width: 80%">
            <div class="card mb-3">
                <div class=" gallery card-header bg-warning " style="width:95%; height: 10%; position: relative; bottom:20px; left:20px;" >
                  <h4 class="card-title text-light text-uppercase">Galerie: <span class="pr-3"></span>{{ galery.title }} </h4>
                </div >
                    <div class="d-flex justify-content-start">
-                       <div class="mx-2"><a class="btn btn-outline-warning btn-sm" href="{{ path('admin_galery_edit', {'id': galery.id}) }}" role="button">modifier la galerie</a></div>
+                       <div class="mx-2"><a class="btn btn-outline-warning btn-sm" href="{{ path('admin_galery_edit', {'id': galery.id}) }}" role="button">Modifier la galerie</a></div>
                        <div class="mx-2">{{ include('adminDashboard/galery/_delete_form.html.twig') }}</div>
                    </div>
                <div class="card-body table-responsive">
@@ -65,6 +65,5 @@
                 </div>
             {% endfor %}
             </div>
-
     </div>
 {% endblock %}
