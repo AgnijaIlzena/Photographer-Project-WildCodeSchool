@@ -8,7 +8,7 @@
 
 {% block body %}
 
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">
                 <div class="col-sm-12-8">
                     {# Carousel #}
@@ -16,13 +16,7 @@
                         <div class="carousel-inner" role="listbox">
                             {% for photo in galery.photos %}
                                 <div class="carousel-item {% if loop.index == 1 %} active {% endif %}">
-                                    <img class="d-block w-100" src="/uploads/{{ photo.path }}">
-                                    <div class="carousel-caption d-none d-md-block">
-                                        <div id="login-button">
-                                            <a href="{{ path("galery_index") }}"><img src="{{ ('/images/loginicon.png')|imagine_filter('logoLogin') }}" alt="logo login"/></a>
-                                        </div>
-                                        <p> Accédez à mes galeries de photos </p>
-                                    </div>
+                                    <img class="" src="{{ ('/uploads/' ~ photo.path) }}">
                                 </div>
                             {% endfor %}
                         </div>

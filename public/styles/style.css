@@ -35,10 +35,11 @@
     margin: 0 auto;
     margin-top: 0px;
 }
-.carousel-item {
+.carousel-item img{
     width: 100%;
-    height: auto;
- }
+    height: 70vh;
+    image-resolution: initial;
+}
 .carousel-caption {
     top: 0;
     bottom: auto;
@@ -56,3 +57,5 @@
     width: 200px;
     height: 250px;
 }
+
+
