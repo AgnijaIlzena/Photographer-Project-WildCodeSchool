@@ -18,7 +18,7 @@ liip_imagine:
                     size: [150, 150]
                     mode: outbound
 
-        logoLogin:
+        carousel:
             quality: 80
             filters:
                 thumbnail:
