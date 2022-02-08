@@ -2,10 +2,13 @@
 
 {% block title %}Home{% endblock %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="/style/styleConnect.css">
+{% endblock %}
+
 {% block body %}
 
-    <section class="jumbotron" style="background-color: white">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-12-8">
                     {# Carousel #}
@@ -15,8 +18,10 @@
                                 <div class="carousel-item {% if loop.index == 1 %} active {% endif %}">
                                     <img class="d-block w-100" src="/uploads/{{ photo.path }}">
                                     <div class="carousel-caption d-none d-md-block">
-                                        <h2> Accédez à mes galeries pour découvrir mes portefeuilles de photographies </h2>
-                                        <input type="button" onclick="location.href='/galery';" value="Accès galeries" />
+                                        <div id="login-button">
+                                            <a href="{{ path("galery_index") }}"><img src="{{ ('/images/loginicon.png')|imagine_filter('logoLogin') }}" alt="logo login"/></a>
+                                        </div>
+                                        <p> Accédez à mes galeries de photos </p>
                                     </div>
                                 </div>
                             {% endfor %}
@@ -38,6 +43,5 @@
                 </div>
             </div>
         </div>
-    </section>
 
 {% endblock %}

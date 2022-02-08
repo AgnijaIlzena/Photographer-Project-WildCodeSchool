@@ -3,25 +3,31 @@
 {% block title %} Galery{% endblock %}
 
 {% block body %}
-    <div class="container-fluid bg-img mx-4 rounded mx-auto p-4">
-        <div class="col-10 row mx-auto row-cols-md-4">
-                {% for galery in galeries %}
-                <div class="col-lg-4 col-sm-6 col-md-6 p-4 mx-auto">
-                    <div class="card bg-light mb-3 gallery ">
-                        <div class="card-header">
-                            <h5 class="card-title ">{{ galery.title }}</h5>
-                        </div>
-                        <div class="card-body gallery ">
-                            <p class="card-text">{{ galery.description }}</p>
-                            <a href="{{ path("galery_show", {id: galery.id}) }}" class="btn btn-primary">Voir les photos</a>
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
+    <!-- Page Content -->
+    <div class="container bg-img">
 
-        <div class="card text-center">
-            <div class="card-body">
+        <h1 class="fw-light text-center text-lg-start mt-4 mb-0">Galerie</h1>
+
+        <hr class="mt-2 mb-5">
+
+        <div class="row text-center text-lg-start">
+            {% for galery in galeries %}
+                <div class="col-lg-3 col-md-4 col-6">
+
+                    <a href="{{ path("galery_show", {id: galery.id}) }}" class="d-block mb-4 h-100 text-decoration-none">
+                        <div class="card">
+                            <img class="img-fluid " src="{{ ('/uploads/' ~ galery.photos[0].path)|imagine_filter('square') }}" alt="">
+                            <div class="card-body">
+                                <h5 class="card-title text-black text-center">{{ galery.title }}</h5>
+                                <p class="card-text text-black text-center">{{ galery.description }}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="card text-center mb-2 ">
+            <div class="card-body m-1">
                 <p class="card-text">Accéder à vos albums photos</p>
 
                 <form action="" method="get">

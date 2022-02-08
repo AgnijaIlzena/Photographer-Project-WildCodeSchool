@@ -12,16 +12,15 @@ liip_imagine:
                     size: [900, 600]
                     mode: outbound
         square:
-            quality: 50
-            filters:
-                thumbnail:
-                    size: [150, 150]
-                    mode: outbound
-
-        carousel:
             quality: 80
             filters:
                 thumbnail:
-                    size: [ 1000, 600 ]
+                    size: [100, 150]
                     mode: outbound
 
+        logoLogin:
+            quality: 80
+            filters:
+                thumbnail:
+                    size: [35, 35]
+                    mode: outbound
