@@ -20,9 +20,7 @@ class AdminController extends AbstractController
      */
     public function index(): Response
     {
-        return $this->render('adminDashboard/admin/index.html.twig', [
-            'dashboard' => 'Admin dashboard',
-          ]);
+        return $this->redirectToRoute('admin_galery_index');
     }
 
     /**
