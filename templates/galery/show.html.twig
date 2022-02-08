@@ -7,10 +7,11 @@
 
     <div class="media">
         <div class="media-body">
-            <div class="text-center">
-                <h1 class="mt-2">{{ galery.title }}</h1>
-                <p>Description: {{ galery.description }}</p>
-                <p>Année : {{ galery.year }}</p>
+
+            <div class="col-lg-3 col-md-8 max-auto text-center border rounded-2 mb-3 mx-auto ">
+                <h1 class="mt-2 fw-normal">{{ galery.title }}</h1>
+                <p> <span class="fs-6 text-muted text-uppercase pe-2">Description: </span><span class="fw-bold">{{ galery.description }}</span></p>
+                <p class="lh-1 "><span class="text-muted text-uppercase pe-2">Année : </span><span class="fw-bold"> {{ galery.year }}</span></p>
             </div>
 
             <div class="container-fluid bg-img mx-4 rounded mx-auto">
@@ -28,9 +29,7 @@
     </div>
 
     <div class="text-right" >
-        <p><a class="text-black text-decoration-none" href="{{ path("galery_index") }}">Retour à la liste des galeries</a></p>
+        <p><a class="btn btn-outline-secondary m-2" href="{{ path("galery_index") }}">Retour à la liste des galeries</a></p>
     </div>
-
-
 {% endblock %}
 
