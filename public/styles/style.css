@@ -18,7 +18,7 @@
 /********************* FOOTER *********************/
 
 #backbtn {
-    background-color: f4eef4;
+    background-color: #f4eef4;
     color: black;
     text-align: center;
     font-size: 30px;
@@ -31,7 +31,7 @@
     line-height: 40px;
     bottom: 50px;
     right: 0;
-
+}
 
 /* Styles for the content section */
 
@@ -80,10 +80,11 @@
     margin: 0 auto;
     margin-top: 0px;
 }
-.carousel-item {
+.carousel-item img{
     width: 100%;
-    height: auto;
- }
+    height: 70vh;
+
+}
 .carousel-caption {
     top: 0;
     bottom: auto;
@@ -101,3 +102,5 @@
     width: 200px;
     height: 250px;
 }
+
+
