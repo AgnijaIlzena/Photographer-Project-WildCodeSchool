@@ -16,8 +16,7 @@
                         <div class="carousel-inner" role="listbox">
                             {% for photo in galery.photos %}
                                 <div class="carousel-item {% if loop.index == 1 %} active {% endif %}">
-                                    {#  <img src="{{ ('/images/loginicon.png')|imagine_filter('logoLogin') }}"  #}
-                                    <img class="d-block w-100" src="{{ ('/uploads/{{ photo.path }}')|imagine_filter('logoLogin') }}">
+                                    <img class="d-block w-100" src="{{ ('/uploads/{{ photo.path }}')|imagine_filter('carousel') }}">
                                 </div>
                             {% endfor %}
                         </div>
