@@ -16,20 +16,10 @@
                         <div class="carousel-inner" role="listbox">
                             {% for photo in galery.photos %}
                                 <div class="carousel-item {% if loop.index == 1 %} active {% endif %}">
-                                    {#  <img src="{{ ('/images/loginicon.png')|imagine_filter('logoLogin') }}"  #}
-                                    <img class="d-block w-100" src="{{ ('/uploads/{{ photo.path }}')|imagine_filter('logoLogin') }}">
+                                    <img class="" src="{{ ('/uploads/' ~ photo.path) }}">
                                 </div>
                             {% endfor %}
                         </div>
-
-                        <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselExample" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
                     </div>
                 </div>
 
@@ -41,13 +31,9 @@
                     <h1>A propos de moi</h1>
                     <p>L'univers de la photographie m'a toujours attiré depuis le plus jeune âge.</p>
                     <p>La photographie photographie permet de témoigner de l'éphémère à l'instant du déclic</p>
-                    <p>Passionné par mon travail de photographe, je me déplace sur toute la France
+                    <p>Passionné par mon travail de photographe, Je me déplace sur toute la France
                         et à l'étranger.</p>
-                    <p>N'hésitez pas à me contacter pour vos projets photographiques.
-                        Je me consacrerais totalement à vous en prenant en compte vos différents besoins.</p>
-
-                    <p> Accédez à mes photos : <a href="{{ path("galery_index") }}">Galeries</a> </p>
-                    </div>
+                    <p>N'hésitez pas à me contacter pour vos projets photographiques. Je me consacrerais totalement à vous en prenant en compte vos différents besoins.</p>
                 </div>
             </div>
         </div>

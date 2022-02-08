@@ -17,10 +17,3 @@ liip_imagine:
                 thumbnail:
                     size: [100, 150]
                     mode: outbound
-
-        carousel:
-            quality: 80
-            filters:
-                thumbnail:
-                    size: [35, 35]
-                    mode: outbound
