@@ -1,6 +1,6 @@
 {% extends 'adminBase.html.twig' %}
 
-{% block title %}New Photo{% endblock %}
+{% block title %}Nouvelle photo{% endblock %}
 {% block stylesheets %}
     <style>
         .photo {
@@ -14,11 +14,9 @@
 
         <div class="card mb-3">
             <div class="photo card-header bg-success" style="width:95%; height: 10%; position: relative; bottom:20px; left:20px;" >
-                <h4 class="card-title text-light text-uppercase">add photo</h4>
+                <h4 class="card-title text-light text-uppercase">ajouter une photo</h4>
             </div>
         {{ include('adminDashboard/photo/_form.html.twig') }}
         </div>
-         {#   <a href="{{ path('photo_index') }}">back to list</a> #}
-
     </div>
 {% endblock %}
