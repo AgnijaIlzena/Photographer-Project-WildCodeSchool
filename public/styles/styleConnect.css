@@ -31,7 +31,8 @@ body {
 .btn {
     width: 80%;
 }
-h1{
+
+.login {
     font-family: 'Open Sans Condensed', sans-serif;
     position: relative;
     margin-top: 0px;

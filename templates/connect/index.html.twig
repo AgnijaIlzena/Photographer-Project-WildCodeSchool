@@ -8,7 +8,7 @@
 
 {% block body %}
     <div id="container">
-        <h1>Se connecter</h1>
+        <h2 class="login">Se connecter</h2>
         <form class="text-white" action="{{ path('connect') }}" method="post">
             {% if error %}
                 <div class="errorMsg">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
