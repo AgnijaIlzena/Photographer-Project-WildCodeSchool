@@ -1,4 +1,5 @@
 # Project 3 - with Wild Code School
+## Video guide through the project: https://www.youtube.com/watch?v=PcPwpDwtcOE
 
  ## Getting Started 
 
